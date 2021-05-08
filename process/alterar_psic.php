@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -98,7 +96,7 @@
 </head>
 
 	<?php
-			require_once "conexao.php";
+			require_once "../conexao.php";
 				session_start();
 				if(isset($_SESSION['unique_id'])){
 					$query = "SELECT nome, nascimento, telefone, sexo, email, cpf, cep, rua, num, bairro, cidade, estado, crp, foto 

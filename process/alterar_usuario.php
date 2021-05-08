@@ -95,7 +95,7 @@
 	</head>
 	
 		<?php
-			require_once 'conexao.php';
+			require_once '../conexao.php';
 			session_start();
 			if(isset($_SESSION["unique_id"])){
 				$query = "SELECT nome, nascimento, telefone, sexo, cpf, cep, rua, num, bairro, cidade, estado, foto
@@ -107,7 +107,7 @@
 				
 			?>
 	<?php
-	require_once 'navbar.php';
+	require_once '../navbar.php';
 	?>
         
 
@@ -222,11 +222,11 @@
             
                 <div class="social-media">
                     <ul>
-                        <li><a href="process/editar_usuario.php"><button>Editar</button></a></li>
+                        <li><a href="editar_usuario.php"><button>Editar</button></a></li>
           
 				</form>
 					<form action="excluir_usuario.php" method="post" enctype="multipart/data-form">
-						<li><a href="process/excluir_usuario.php"><button>Excluir</button></a></li>
+						<li><a href="excluir_usuario.php"><button>Excluir</button></a></li>
 					</ul>
 				</div>
 				</form>

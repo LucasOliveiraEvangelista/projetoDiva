@@ -199,7 +199,7 @@ body{
 }
 .users .search button.active{
   background: #333;
-  color: #fff;
+  color: #5400fc;
 }
 .search button.active i::before{
   content: '\f00d';

@@ -1,5 +1,5 @@
 <?php
-	require_once 'conexao.php';
+	require_once '../conexao.php';
 	//print_r($_POST);
 	$nome = $_POST['nome'];
 	$data_nasc = $_POST['data_nasc'];

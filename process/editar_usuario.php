@@ -1,5 +1,5 @@
 <?php
-	require_once 'conexao.php';
+	require_once '../conexao.php';
 	//print_r($_POST);
 	$nome = $_POST['nome'];
 	$data_nasc = $_POST['data_nasc'];
@@ -16,8 +16,9 @@
 
 	
 	session_start();
-	$checagem="SELECT telefone FROM cad_usuario WHERE telefone='$telefone' 
-			   AND id_paciente <> $_SESSION['unique_id']";
+	$$checagem="SELECT telefone FROM cad_usuario WHERE telefone='$telefone' 
+	AND unique_id <> $_SESSION[unique_id]";
+
 			   //echo $checagem;exit;
 	$checar = mysqli_query($conn,$checagem);
 	$registros = mysqli_num_rows($checar);

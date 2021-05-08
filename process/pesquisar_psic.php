@@ -65,7 +65,7 @@
             </nav>
         </div>
         <?php
-			require_once 'conecta.php';
+			require_once '../conexao.php';
 	
 			$pesquisar = $_POST['pesquisar'];
 			$executar = "SELECT * FROM psicologos WHERE nome LIKE '%$pesquisar%' LIMIT 5";

@@ -1,5 +1,5 @@
 <?php
-	require_once 'conecta.php';
+	require_once '../conexao.php';
 
 	session_start();
 	$query = "DELETE FROM cad_usuario WHERE id_usuario = $_SESSION[id_usuario]";

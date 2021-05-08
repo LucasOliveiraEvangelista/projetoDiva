@@ -1,8 +1,8 @@
 <?php 
   session_start();
-  include_once "php/config.php";
+  include_once "../conexao.php";
   if(!isset($_SESSION['unique_id'])){
-    header("location: login.php");
+    header("location: ../login.php");
   }
 ?>
 <!DOCTYPE html>
@@ -11,10 +11,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Chat</title>
 
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/chat.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>

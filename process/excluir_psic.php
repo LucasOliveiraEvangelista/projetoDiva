@@ -1,8 +1,8 @@
 <?php
-	require_once 'conecta.php';
+	require_once '../conexao.php';
 
 	session_start();
-	$query = "DELETE FROM cad_profissional WHERE id_profissional = $_SESSION[id_profissional]";
+	$query = "DELETE FROM psicologos WHERE id_profissional = $_SESSION[id_profissional]";
 	$excluir = mysqli_query($conexao, $query);
 	if($excluir==1){
 		echo "
