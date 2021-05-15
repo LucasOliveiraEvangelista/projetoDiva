@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="css/navbar.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
-
 <?php
     $frases = array('Se podemos sonhar, também podemos tornar nossos sonhos realidade.',
     'A única maneira de fazer um bom trabalho é amando o que você faz. Se você ainda não encontrou, continue procurando. Não se desespere. Assim como no amor, você saberá quando tiver encontrado.',
@@ -27,111 +24,64 @@
     'crie objetivos em sua vida e você sentirá prazer sempre que conseguir realizá-los.',
     'Uma das lições com as quais eu cresci foi a de sempre permanecer verdadeiro consigo mesmo e nunca deixar que as palavras de alguém distraia você dos seus objetivos.',
     'Se você ultrapassar aquela sensação de medo, aquele sentimento de estar correndo um risco, coisas verdadeiramente maravilhosas podem acontecer.',
-    'Se você olha para o que você tem na vida, você sempre terá mais. Se você olha para o que você não tem na vida, você nunca terá o suficiente.',
-);
-?>
-<?php
-    require_once 'navbar.php';
-?>
-        <div class="landing">
-            <div class="landingText" data-aos="fade-up" data-aos-duration="1000">
-                <h1>Mensagen do dia: </h1>
-                <h3>" <?php echo $frases[rand(0, 13)];?>"</h3>
-            </div>
-            <div class="landingImage" data-aos="fade-down" data-aos-duration="2000">
-                <img src="img/bg.png" alt="">
-            </div>
-        </div>
-        <div class="about">
-            <div class="aboutText" data-aos="fade-up" data-aos-duration="1000">
-                <h1>O por que é importante procurar<br> <span style="color:#db65be;font-size:3vw">Ajuda psicologica?</span> </h1>
-                <img src="img/doctor-woman-400px.png" alt="">
-            </div>
-            <div class="aboutList" data-aos="fade-left" data-aos-duration="1000">
-                <ol>
-                    <li> 
-                        <span>01</span>
-                         <p> orientações e esclarecimentos, dificuldades existenciais ou mesmo pela busca de autoconhecimento.</p>
-                    </li>
-                    <li> 
-                        <span>02</span>
-                         <p>Sentimentos constantes de tristeza, ansiedade, estresse, raiva, desânimo.</p>
-                    </li>
-                    <li> 
-                        <span>03</span>
-                         <p> Quando passamos por uma situação complicada, parece que não conseguimos enxergar sozinhos uma solução.</p>
-                    </li>
-                    <li> 
-                        <span>04</span>
-                         <p>Dificuldades de relacionamento, relacionar-se não é uma tarefa fácil, seja o relacionamento amoroso, com a família, com amigos ou com colegas de trabalho.</p>
-                    </li>
+    'Se você olha para o que você tem na vida, você sempre terá mais. Se você olha para o que você não tem na vida, você nunca terá o suficiente.',);?>
+    
+<body>
 
-                </ol>
+    
+    <div class = "one">
+        <div class="nav">
+            <div class="logo">
+                <a href="index.php"><img src="assets/logo.png" alt=""></a>
+                
             </div>
-        </div>
-
-        <div class="infoSection">
-            <div class="infoHeader" data-aos="fade-up" data-aos-duration="1000">
-                <h1>O que você pode fazer na<br> <span style="color:#c91be0">Plataforma do Divã</span> </h1>
-            </div>
-            <div class="infoCards">
-                <div class="card one" data-aos="fade-up" data-aos-duration="1000">
-                    <img src="img/cale.png" style="width: 288px;" class="cardoneImg" alt="" data-aos="fade-up" data-aos-duration="1100">
-                    <div class="cardbgone"></div>
-                    <div class="cardContent">
-                        <h2>Marcar consultas</h2>
-                        <p>Na plataforma é possivel agendar consultas com psicólogos</p>
-                        <a href="#">
-                            <div class="cardBtn">
-                                <img src="img/next.png" alt="" class="cardIcon">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="card two" data-aos="fade-up" data-aos-duration="1300">
-                    <img src="img/procura.svg"  style="width: 255px;" class="cardtwoImg" alt="" data-aos="fade-up" data-aos-duration="1200">
-                    <div class="cardbgtwo"></div>
-                    <div class="cardContent">
-                        <h2>Busque por psicólogos</h2>
-                        <p>Encontre psicólogos pelo nicho de atuação ou se estão perto de você</p>
-                        <a href="#">
-                            <div class="cardBtn">
-                                <img src="img/next.png" alt="" class="cardIcon">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="card three" data-aos="fade-up" data-aos-duration="1600">
-                    <img src="img/videocall.png" class="cardthreeImg" alt="" data-aos="fade-up" data-aos-duration="1300">
-                    <div class="cardbgone"></div>
-                    <div class="cardContent">
-                        <h2>Chat</h2>
-                        <p>Onde você pode tirar duvidas com doutores especialistas!</p>
-                        <a href="#">
-                            <div class="cardBtn">
-                                <img src="img/next.png" alt="" class="cardIcon">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <h2>Diva</h2>
-            <div class="footerlinks">
-                <a href="#" class="mainlink">Entrar para o divã</a>
-                <a href="#">chat</a>
-                <a href="#">feed</a>
+            <div class="links">
+                <a href="#">Profissionais</a>
+                <a href="#">Planos</a>
+                <a href="#">Sobre</a>
                 <a href="#">Contato</a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#">Entrar</a>
+                <a href="#"><button class = "cad" >Cadastrar</button></a>
             </div>
+        </div>
+    
+        <div class = "main">
+            <h1 class="title">CRIADO PARA AJUDAR PESSOAS,</br>
+            O <span class=" purple-text">DIVÃ</span></h1>
+            <h2 class="text">Tem como objetivo levar ajuda psicológica para pessoas de baixa renda a fazer acompanhamentos 
+            com profissionais da área por um preço acessível e uma proximidade maior do psicologo com o paciente com nossa plataforma.</h2>
+            <a href="#"><button>Juntar-se ao Divã</button></a>
+        </div>
+        <div class="image">
+            <img src="assets/celebration.svg" alt="">
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-            AOS.init();
-    </script>
-    <script src="js/navbar.js"></script>
+
+    
+    <div class = "search">
+        <div class="big-text">
+            <h1 class="white">Encontre excelentes profissionais com muita experiência e especializados para te ajudar através da nossa plataforma</h1>
+            <img src="" alt="">
+        </div>
+        <div class="list">
+            <ul>
+                <li><i class="fas fa-check"></i>Especialidade</li>
+                <li><i class="fas fa-check"></i>Localidade</li>
+                <li><i class="fas fa-check"></i>Nome</li>
+                <li><i class="fas fa-check"></i>Valor</li>
+            </ul>
+        </div>
+        
+    </div>
+    <section class = "three"></section>
+    <section class = "four"></section>
+    <section class = "footer"></section>
+
+
 </body>
 </html>

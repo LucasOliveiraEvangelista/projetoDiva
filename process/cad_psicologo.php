@@ -80,8 +80,8 @@
             history.back();
         </script>";
         }else{
-        $inserir =  "INSERT INTO psicologos (nome, email, senha, nascimento, rg, cpf, cep, crp, status, unique_id, situacao)
-        VALUES('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$crp', '$status', '$ran_id', 0)";
+        $inserir =  "INSERT INTO psicologos (nome, email, senha, nascimento, rg, cpf, cep, crp, status, unique_id, situacao, foto)
+        VALUES('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$crp', '$status', '$ran_id', 0, 'user.png')";
         $query = mysqli_query($conn, $inserir);
         if($inserir){
             $select_sql2 = mysqli_query($conn, "SELECT * FROM psicologos WHERE email = '{$email}'");
@@ -90,8 +90,11 @@
                         $_SESSION['unique_id'] = $result['unique_id'];
                         echo "<script>
                             alert('Cadastrado com sucesso! Seja bem-vindo!! A validação do CRP leva de 3 á 5 dias');
-                            location.href='home.php';
+                            alert('Enquanto isso complete suas informações no seu Perfil');
+                            location.href='../perfil-profissional.php';
                             </script>";
+
+                        
                     }else{
                         echo "Email não existe";
                     }

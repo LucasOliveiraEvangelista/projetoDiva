@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
 
 /*===== VARIABLES CSS =====*/
 :root{
@@ -11,11 +11,16 @@
   --white-color: #ffffff;
   
   /*===== Font and typography =====*/
-  --body-font: 'Nunito', sans-serif;
   --normal-font-size: 1rem;
   
   /*===== z index =====*/
   --z-fixed: 100;
+
+  --cor-principal: #564a9e;
+  --cor-texto: #d9d9d9;
+  --cor-titulo: #FFFFFF;
+  --fonte-titulo: 'Antonio', sans-serif;
+  --fonte-texto: 'Oswald', sans-serif;
 }
 
 /*===== BASE =====*/
@@ -27,7 +32,7 @@ body{
   position: relative;
   margin: var(--header-height) 0 0 0;
   padding: 0 1rem;
-  font-family: var(--body-font);
+  font-family: var(--fonte-texto);
   font-size: var(--normal-font-size);
   transition: .5s;
 }
@@ -53,7 +58,7 @@ a{
 }
 
 .header__toggle{
-  color: var(--first-color);
+  color: var(--first-color-light);
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -78,7 +83,7 @@ a{
   left: -30%;
   width: var(--nav-width);
   height: 100vh;
-  background-color: var(--first-color);
+  background-color: var(--cor-principal);
   padding: .5rem 1rem 0 0;
   transition: .5s;
   z-index: var(--z-fixed);
@@ -90,6 +95,10 @@ a{
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+}
+
+.nav .logo{
+  width: 20px;
 }
 
 .nav__logo, .nav__link{

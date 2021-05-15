@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+
+:root {
+    --cor-principal: #564a9e;
+    --cor-texto: #d9d9d9;
+    --cor-titulo: #FFFFFF;
+    --fonte-titulo: 'Antonio', sans-serif;
+    --fonte-texto: 'Oswald', sans-serif;
+  }
+  .card_psicologo {
+    margin-top: 80px;
+    background: var(--cor-principal);
+    width: 1120px;
+    height: 580px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 10px 10px 15px #333333be;
+}
+.card_psicologo div.coluna{
+    display: flex;
+    flex-direction: column;
+}
+.card_psicologo img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+}
+.card_psicologo .coluna .chat{
+    background: var(--cor-principal);
+    border: 3px solid #FFFFFF;
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    color: var(--cor-texto);
+    border-radius: 10px;
+    margin-left: 110px;
+    margin-top: 80px;
+}
+.card_psicologo .coluna2{
+    display: flex;
+    flex-direction: column;
+}
+.card_psicologo .coluna2 .nome{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 48px;
+    margin-bottom: -8px;
+}
+.card_psicologo .coluna2 .info{
+    color: var(--cor-texto);
+    font-size: 18px;
+    font-family: var(--fonte-texto);
+    line-height: -8px;
+}
+.cards{
+    margin-top: 60px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+.especialidades, .experiencias{
+    width: 500px;
+    height: 400px;
+    background: var(--cor-principal);
+    border-radius: 10px;
+    margin-left: 80px;
+    padding-left: 20px;
+    box-shadow: 10px 10px 15px #333333be;
+}
+.especialidades .nome, .experiencias .nome{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 38px;
+    text-align: center;
+}
+.especialidades p, .experiencias p{
+    color: var(--cor-texto);
+    font-size: 22px;
+    font-family: var(--fonte-texto);
+}
+.especialidades{
+  margin-left: -80px;
+}
+.card_formacao{
+    margin-top: 80px;
+    background: var(--cor-principal);
+    width: 1120px;
+    height: 580px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 10px 10px 15px #333333be;
+}
+.card_formacao .nome{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 38px;
+    text-align: center;
+    margin-left: 320px;
+}
+.card_formacao p{
+    color: var(--cor-texto);
+    font-size: 22px;
+    font-family: var(--fonte-texto);
+    margin-left: 20px;
+}
+.card_formacao .titulo{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 38px;
+    text-align: center;
+}
+.card_formacao .desc{
+    padding: 20px;
+}

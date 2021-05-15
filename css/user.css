@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+
+:root {
+    --cor-principal: #564a9e;
+    --cor-texto: #d9d9d9;
+    --cor-titulo: #FFFFFF;
+    --fonte-titulo: 'Antonio', sans-serif;
+    --fonte-texto: 'Oswald', sans-serif;
+  }
+
+  .card_psicologo {
+    margin-top: 80px;
+    background: var(--cor-principal);
+    width: 1120px;
+    height: 520px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 10px 10px 15px #333333be;
+}
+.card_psicologo div.coluna{
+    display: flex;
+    flex-direction: column;
+}
+.card_psicologo img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+}
+.card_psicologo .coluna .chat{
+    background: var(--cor-principal);
+    border: 3px solid #FFFFFF;
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    color: var(--cor-texto);
+    border-radius: 10px;
+    margin-left: 110px;
+    margin-top: 80px;
+}
+.card_psicologo .coluna2{
+    display: flex;
+    flex-direction: column;
+}
+.card_psicologo .coluna2 .nome{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-titulo);
+    font-size: 48px;
+    margin-bottom: -8px;
+}
+.card_psicologo .coluna2 .info{
+    color: var(--cor-texto);
+    font-size: 18px;
+    font-family: var(--fonte-texto);
+    line-height: -8px;
+}
+.card_psicologo .coluna2 .alter{
+    width: 588px;
+    height: 50px;
+    margin-top: 80px;
+    border: 3px solid #FFFFFF;
+    background: var(--cor-principal);
+    font-family: var(--fonte-texto);
+    color: var(--cor-titulo);
+    font-size: 24px;
+    border-radius: 10px;
+}
+.card_psicologo .coluna2 .alter:hover{
+    background: var(--cor-titulo);
+    color: var(--cor-principal);
+}
+.alter{
+    cursor: pointer;
+}

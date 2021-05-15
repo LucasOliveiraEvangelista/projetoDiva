@@ -18,7 +18,7 @@ function masc_telefone(){
 	var telefone = document.getElementById('telefone')
 		if(telefone.value.length == 1)
 			telefone.value = "(+55) " + telefone.value 
-		if(telefone.value.length == 14)
+		if(telefone.value.length == 12)
 			telefone.value += "-";
 }
 

@@ -2,8 +2,8 @@
 	require_once '../conexao.php';
 
 	session_start();
-	$query = "DELETE FROM cad_usuario WHERE id_usuario = $_SESSION[id_usuario]";
-	$excluir = mysqli_query($conexao, $query);
+	$query = "DELETE FROM cad_usuario WHERE unique_id = ".$_SESSION['unique_id'];
+	$excluir = mysqli_query($conn, $query);
 	if($excluir==1){
 		echo "
 			<script>

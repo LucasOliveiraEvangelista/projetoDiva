@@ -1,7 +1,4 @@
-Na pasta php dentro da pasta chat tem o arquivo config.php mudar lá para conectar no seu banco local do phpmyAdmin ../chat/php/config.php
-Na pasta tem o arquivo conecta.php e faça a mesma coisa pra funcionar
-e tbm tem o arquivo conexao.php na raiz da pasta onde vc tem q fazer o memso pra funcionar
-
+ arquivo conexao.php na raiz da pasta
 
 
 

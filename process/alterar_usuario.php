@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Perfil</title>
 		<link rel="stylesheet" href="../css/navbar.css">
-		<link rel="stylesheet" href="../css/perfi.css">
-		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" href="../css/user.css">
 
-		<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		
 		<script src="../js/validacao.js"></script>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -23,7 +23,7 @@
 		</script>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script>
+				<script>
 			
 			function limpa_formulário_cep() {
 					//Limpa valores do formulário de cep.
@@ -98,7 +98,7 @@
 			require_once '../conexao.php';
 			session_start();
 			if(isset($_SESSION["unique_id"])){
-				$query = "SELECT nome, nascimento, telefone, sexo, cpf, cep, rua, num, bairro, cidade, estado, foto
+				$query = "SELECT *
 				FROM cad_usuario WHERE unique_id = ". $_SESSION["unique_id"];
 				//echo $query;
 				$executar = mysqli_query($conn,$query);
@@ -107,38 +107,22 @@
 				
 			?>
 	<?php
-	require_once '../navbar.php';
+	require_once '../navbar_user.php';
 	?>
         
+		<div class="card_psicologo">
+        <div class="coluna">
 
-        <div class="wrapper">
-            <div class="left">
-				<form action="editar_usuario.php" method="post" enctype="multpart/data-form">
-                <?php echo "<img src='../imagens/$usuario[foto]' alt='user' width='20vw'>";?>
-				<h4>Paciente</h4>
-            </div>
-            <div class="right">
-                <div class="info">
-                    <h3>EDITAR INFORMAÇÕES</h3>
-                    <div class="info_data">
-                        <div class="data">
-                            <h4>Nome</h4>
-                            <p><?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
-                        </div>
-                        <div class="data">
-                        <h4>Data de nascimento</h4>
-                            <p><?php echo "<input type='date' name='data_nasc' value='$usuario[data_nasc]'/>"?></p>
-                    </div>
-                    </div>
-                    <div class="info_data">
-                        <div class="data">
-                            <h4>Telefone</h4>
-                            <p><?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
-                        </div>
-                        <div class="data">
-							<h4>Sexo</h4>
-							<p>
-								<select name="sexo">
+		<form class = "formulario"  action="editar_usuario.php" method="POST" enctype="multpart/data-form">
+            <?php echo "<img src='../imagens/$usuario[foto]' alt='user'>"; ?>
+        </div>
+
+        <div class="coluna2">
+            <div class="info">
+                <p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
+                <p>CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
+                <p>Nasceu em: <?php echo "<input type='date' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
+                <p>Sexo: <select name="sexo">
 											<?php 
 												if($usuario['sexo']=='f'){
 													$sexo = "
@@ -184,55 +168,20 @@
 												echo $sexo;
 								
 											?>
-										</select>
-									</p>
-                    </div>
-                    </div>
-                    <div class="info_data">
-						<div class="data">
-							<h4>CEP</h4>
-                            <p><?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
-						</div>
-						<div class="data">
-                            <h4>Rua</h4>
-                            <p><?php echo "<input name='rua' id='rua' type='text' value='$usuario[rua]'/>"?></p>
-                        </div>
-                    </div>
-                    <div class="info_data">
-                        <div class="data">
-                            <h4>Número</h4>
-                            <p><?php echo "<input type='text' name='num' value='$usuario[num]'/>"?></p>
-                        </div>
-                        <div class="data">
-                        <h4>Bairro</h4>
-                            <p><?php echo "<input name='bairro' id='bairro' type='text' value='$usuario[bairro]'/>"?></p>
-                    </div>
-                    </div>
-                    <div class="info_data">
-                        <div class="data">
-                            <h4>Cidade</h4>
-                            <p><?php echo "<input name='cidade' type='text' id='cidade' value='$usuario[cidade]'/>"?></p>
-                        </div>
-                        <div class="data">
-                        <h4>Estado</h4>
-                            <p><?php echo "<input name='estado' id='estado' type='text' value='$usuario[estado]'/>"?></p>
-                    </div>
-                    </div>
-                </div>
-            
-                <div class="social-media">
-                    <ul>
-                        <li><a href="editar_usuario.php"><button>Editar</button></a></li>
-          
-				</form>
-					<form action="excluir_usuario.php" method="post" enctype="multipart/data-form">
+										</select></p>
+                <p>Estado: <?php echo "<input type='text' name='estado' id='estado' value='$usuario[estado]'/>" ?></p>
+                <p>Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
+            </div>
+
+			<li><a href="editar_usuario.php"><button>Editar</button></a></li>
+							</form>
+
+			<form action="excluir_usuario.php" method="post" enctype="multipart/data-form">
 						<li><a href="excluir_usuario.php"><button>Excluir</button></a></li>
 					</ul>
 				</div>
 				</form>
-            </div>
-        </div>
-        <script src="js/navbar.js"></script>
+        <script src="../js/navbar.js"></script>
 	<?php
 		}else{
 			echo "Acesso negado";

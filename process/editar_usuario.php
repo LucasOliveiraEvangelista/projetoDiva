@@ -86,7 +86,7 @@
 			echo "
 				<script>
 				alert('Dado(s) editado com sucesso!');
-				location.href='alterar_usuario.php';
+				location.href='../perfil_user.php';
 				</script>
 			";
 		}else{

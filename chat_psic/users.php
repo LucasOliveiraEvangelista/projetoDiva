@@ -27,12 +27,12 @@
       <header>
         <div class="content">
           <?php 
-            $sql = mysqli_query($conn, "SELECT * FROM psicologos WHERE unique_id = {$_SESSION['unique_id']}");
+            $sql = mysqli_query($conn, "SELECT * FROM cad_usuario WHERE unique_id = {$_SESSION['unique_id']}");
             if(mysqli_num_rows($sql) > 0){
               $row = mysqli_fetch_assoc($sql);
             }
           ?>
-          <img src="" alt="">
+          <img src="../imagens/user.png" alt="">
           <div class="details">
             <span><?php echo $row['nome']; ?></span>
             <p><?php echo $row['status']; ?></p>

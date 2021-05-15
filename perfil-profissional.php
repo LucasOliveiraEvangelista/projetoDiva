@@ -10,8 +10,8 @@
 		<title>Perfil</title>
 		<link rel="stylesheet" href="css/navbar.css">
 		<link rel="stylesheet" href="css/perfi.css">
-		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-		<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>	
 			
 	</head>
 		<?php

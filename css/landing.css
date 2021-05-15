@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+root{
+    --titulos: font-family: 'Antonio', sans-serif;
+    --textos : font-family: 'Oswald', sans-serif;
+}
+
+*{
+    text-decoration: none;
+}
+
+.nav{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    background-color: #564A9E;
+    box-shadow: 0 18px 30px #33333333;
+}
+.nav .links a{
+    margin-right: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+}
+.nav .links a button{
+    background: transparent;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    width: 82px;
+    height: 36px;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+.nav .logo img{
+    width: 90px;
+    height: 90px;
+}
+.nav .links button.cad:hover{
+    cursor: pointer;
+    background: #ffffff;
+    color: #564a9e;
+}
+
+
+
+.inicio{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    height: 68vh;
+}
+.texto{
+    margin-top: 120px;
+    margin-left: 30px;
+    width: 50vw;
+}
+.texto .titulo{
+    font-family: 'Antonio', sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+}
+.texto .paragrafo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: #33333399;
+    font-weight: 200;
+    margin-top: -20px;
+}
+.texto .texto-roxo{
+    color: #564A9E;
+}
+.texto a button{
+    width: 292px;
+    height: 64px;
+    border-radius: 40px;
+    background-color: #564A9E;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    border: none;
+    box-shadow: 8px 5px 4px #33333333;
+    cursor: pointer;
+}
+.imagem{
+    margin-top: 160px;
+    margin-left: 30px;
+}
+.imagem img{
+    width: 539px;
+    height: 376px;
+}
+
+
+
+
+
+.wave_cima{
+    margin-bottom: -5px;
+}
+.wave_baixo{
+    margin-top: -5px;
+}
+
+
+
+
+
+.segundo{
+    background-color: #564A9E;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+.texto-segundo{
+    margin-top: 80px;
+    margin-left: 30px;
+    width: 50vw;
+}
+.texto-segundo .titulo2{
+    font-family: 'Antonio', sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+    color: #ffffff;
+}
+.pesquisa{
+    margin-top: 100px;
+    margin-left: 30px;
+}
+.search{
+    width: 388px;
+    background: #ffffff;
+    height: 52px;
+    border-radius: 20px;
+    text-align: left;
+    border: none;
+    
+}
+.search span{
+    margin-left: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    color: #333333e0;
+}
+.search span a i{
+    margin-top: 5px;
+    margin-right: 20px;
+    float: right;
+    color: #333333e0;
+    align-items: center;
+}
+.busca{
+    font-family: 'Antonio', sans-serif;
+    font-size: 48px;
+    font-weight: 200;
+    color: #ffffff;
+}
+.caixa{
+    border: 4px solid #ffffff;
+    border-radius: 20px;
+    width: 388px;
+    height: 246px;
+}
+.caixa p{
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    margin-left: 15px;
+    color: #ffffff;
+}
+.caixa p i{
+    margin-right: 10px;
+}
+.botao{
+    width: 388px;
+    height: 80px;
+    border: 4px solid #ffffff;
+    color: #ffffff;
+    background-color: #564A9E;
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+}
+
+
+
+
+
+.section{
+    display: flex;
+}
+.terceiro{
+    width: 100vw;
+    height: 800px;
+    background-color: #564A9E;
+    flex-direction: row;
+}
+.texto-terceiro{
+    margin-top: 120px;
+    text-align: center;
+}
+.texto-terceiro .titulo2{
+    font-family: 'Antonio', sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+    color: #ffffff; 
+
+}
+.cards{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.card{
+    width: 284px;
+    height: 506px;
+    background: #ffffff;
+    border-radius: 20px;
+    margin-left: 40px;
+    box-shadow: 10px 18px 10px #3333337b;
+}
+.card .plano{
+    font-family: 'Antonio', sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+}
+.card .linha-amarela{
+    border: 3;
+	border-top: 1px solid #fad609;
+    width: 260px;
+}
+.card .linha-roxa{
+    border: 3;
+	border-top: 1px solid #564A9E;
+    width: 260px;
+}
+.card .preco{
+    font-family: 'Antonio', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+}
+.card .vante{
+    margin-left: 8px;
+    text-align: left;
+    color: #333333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+.card .vante i{
+    color: #fad609;
+    margin-right: 4px;
+}
+.card .vant{
+    margin-left: 8px;
+    text-align: left;
+    color: #333333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+.card .vant i{
+    color: #564a9e;
+    margin-right: 4px;
+}
+
+.card .roxo{
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #564a9e;
+    border: 3px solid #564a9e;
+    width: 210px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+.card .amarelo{
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #fad609;
+    border: 3px solid #fad609;
+    width: 210px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+.card .tipo{
+    font-size: 14px;
+    font-family: 'Oswald', sans-serif;
+    color: #333333;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.botao{
+    cursor: pointer;
+}
+.botao:hover{
+    background: #FFFFFF;
+    color: #564A9E;
+}
+.roxo:hover{
+    cursor: pointer;
+    background: #564a9e;
+    color: #ffffff;
+}
+.amarelo:hover{
+    cursor: pointer;
+    background: #fad609;
+    color: #ffffff;
+}
