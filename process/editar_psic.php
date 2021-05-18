@@ -6,11 +6,15 @@
 	$telefone = $_POST['telefone'];
 	$sexo = $_POST['sexo'];
 	$cep = $_POST['cep'];
-	$rua = $_POST['rua'];
-	$num = $_POST['num'];
-	$bairro = $_POST['bairro'];
-	$cidade = $_POST['cidade'];
+	$local = $_POST['local'];
 	$estado = $_POST['estado'];
+	$idioma = $_POST['idioma'];
+	$valor = $_POST['valor'];
+	$ano = $_POST['ano'];
+	$tempo = $_POST['tempo'];
+	$remarca = $_POST['remarcacao'];
+	$texto = $_POST['texto'];
+	$resumo = $_POST['resumo'];
 	
 	session_start();
 	$checagem="SELECT telefone FROM psicologos WHERE telefone='$telefone' 
@@ -22,7 +26,7 @@
 		echo "
 				<script>
 					alert('Telefone já cadastrado em outra conta!');
-					location.href='alterar_usuario.php';
+					history.back();
 				</script>";
 	}else if($nome==""){
 		echo "
@@ -66,59 +70,59 @@
 					history.back();
 				</script>
 			";
-	}else if($rua==""){
+	}else if($local==""){
 		echo "
 			<script>
-				alert('Digite o nome da sua rua!');
+				alert('Digite o local do seu consultório');
 				history.back();
 			</script>
 		";
-	}else if(strlen($rua)>30){
+	}else if(strlen($local)>90){
 		echo "
 				<script>
 					alert('Nome da rua muito grande. Digite uma menor!');
 					history.back();
 				</script>
 			";
-	}else if($num==""){
+	}else if($idioma==""){
 		echo "
 				<script>
 					alert('Digite o número da sua residência!');
 					history.back();
 				</script>
 			";
-	}else if(strlen($num)>5){
+	}else if(strlen($ano)>4){
 		echo "
 				<script>
 					alert('Número inválido!');
 					history.back();
 				</script>
 			";
-	}else if($bairro==""){
+	}else if($ano==""){
 		echo "
 				<script>
-					alert('Digite seu bairro!');
+					alert('Digite o ano que você começou a exercer a profissão!');
 					history.back();
 				</script>
 			";
-	}else if(strlen($bairro)>30){
+	}else if(strlen($texto)>800){
 		echo "
 				<script>
-					alert('Nome do bairro muito grande. Digite um nome menor!');
+					alert('Texto muito grande. Digite um texto menor!');
 					history.back();
 				</script>
 			";
-	}else if($cidade==""){
+	}else if($remarca==""){
 		echo "
 				<script>
-					alert('Digite sua Cidade!');
+					alert('Defina o tempo para a remarcação sem custo adicional');
 					history.back();
 				</script>
 			";
-	}else if(strlen($cidade)>30){
+	}else if(strlen($resumo)>600){
 		echo "
 				<script>
-					alert('Nome da Cidade muito extenso. Digite uma menor!');
+					alert('Resumo muito extenso. Digite um menor!');
 					history.back();
 				</script>
 			";
@@ -130,8 +134,23 @@
 				</script>
 			";
 	
-	}else{	
-		$query = "UPDATE psicologos SET nome='$nome', nascimento='$data_nasc', telefone='$telefone', sexo='$sexo', cep='$cep', rua='$rua', num='$num', bairro='$bairro', cidade='$cidade', estado='$estado' 
+	}else if(empty($valor)){
+		echo "
+				<script>
+					alert('Digite o valor da sua consulta');
+					history.back();
+				</script>
+			";
+	}else if(empty($tempo)){
+		echo "
+				<script>
+					alert('Digite a duração da sua consulta');
+					history.back();
+				</script>
+			";
+	}
+	else{	
+		$query = "UPDATE psicologos SET nome='$nome', nascimento='$data_nasc', telefone='$telefone', sexo='$sexo', cep='$cep', tempo_experiencia='$ano', tempo_consulta='$tempo', local ='$local', valor='$valor', estado='$estado', texto='$texto', idioma='$idioma', remarcacao='$remarca', resumo='$resumo'
 				   WHERE unique_id = $_SESSION[unique_id]";
 		$atualizar = mysqli_query($conn, $query);
 
@@ -139,14 +158,14 @@
 			echo "
 				<script>
 				alert('Dado(s) editado com sucesso!');
-				location.href='alterar_psic.php';
+				location.href='../perfil_psic.php';
 				</script>
 			";
 		}else{
 			echo "
 				<script>
 				alert('Erro ao editar');
-				location.href='alterar_psic.php';
+				location.href='alterar_psico.php';
 				</script>
 			";  
 		}

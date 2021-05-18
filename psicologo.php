@@ -1,10 +1,20 @@
+<?php 
+        require_once 'conexao.php';
+          $psic_id = mysqli_real_escape_string($conn, $_GET['psic']);
+          $sql = mysqli_query($conn, "SELECT * FROM psicologos WHERE unique_id = {$psic_id}");
+          if(mysqli_num_rows($sql) > 0){
+            $row = mysqli_fetch_assoc($sql);
+          }else{
+            header("location: lista_psicologos.php");
+          }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nome do Psicólogo</title>
+    <title><?php echo $row['nome']?></title>
 
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/psic.css">
@@ -63,24 +73,38 @@
     <div class="conteudo">
         <div class="card_psicologo">
             <div class="coluna">
-                <img src="imagens/user.png" alt="">
+            <?php echo "<img src='imagens/$row[foto]' alt='user'>"?>
                 <div class="btn_chat">
                     <button class="chat">Chat</button>
                 </div>
             </div>
             <div class="coluna2">
                 <div class="info">
-                    <p class = "nome">Doutora Felicia Felix Dahora</p>
-                    <p>Formado na: Universidade Federal de Minas Gerais (UFMG) </p>
-                    <p>CRP: 08/12344</p>
-                    <p>Tempo de Profissão: 12 anos</p>
-                    <p>Nasceu em: 12/08/1982</p>
-                    <p>Sexo: Feminino</p>
-                    <p>Idioma(s): Português, Inglês</p>
-                    <p>Estado: MG</p>
-                    <p>Endereço do consultório: Rua dos bobos, n° 0</p>
-                    <p>Valor: R$ 80/40min</p>
-                    <p>Telefone: 4002-8922</p>
+                    <p class = "nome"><?php echo $row['nome']?></p>
+                    <p>Formado na: <?php echo $row['diploma']?></p>
+                    <p>CRP: <?php echo $row['crp']?></p>
+                    <p>Tempo de Profissão: <?php 
+                    $tempo = 2021 - $row['tempo_experiencia'];
+                echo "$tempo Anos"; ?></p>
+                    <p>Nasceu em: <?php echo $row['nascimento']?></p>
+                    <p>Sexo: <?php 
+								if($usuario['sexo']=='f'){
+									echo "Feminino";
+								}else if($usuario['sexo']=='m'){
+									echo "Masculino";
+								}else if($usuario['sexo']=='o'){
+									echo "Outro";
+								}else if($usuario['sexo']=='n'){
+									echo "Não sei responder";
+								}else{
+									echo "Pefiro não responder";
+								}
+								?></p>
+                    <p>Idioma(s): <?php echo $row['idioma']?></p>
+                    <p>Estado: <?php echo $row['estado']?></p>
+                    <p>Endereço do consultório: <?php echo $row['local']?></p>
+                    <p>Valor: R$ <?php echo "$row[valor] / $row[tempo_consulta]"; ?></p>
+                    <p>Telefone: <?php echo $row['telefone']?></p>
                 </div>
         </div>
         
@@ -122,9 +146,7 @@
     <div class="card_formacao">
         <div class="info">
             <p class = "titulo">Descrição Pessoal</p>
-                <p class = "desc">Sou apaixonada pela psicologia clínica e estou em constante busca de aprimoramento para tentar entregar o melhor do meu trabalho. Atuando em conjunto para o cliente encontrar suas melhores possibilidades diante do seu sofrimento. Trabalho atualmente com adolescentes e adultos. Atuo nas linhas de ansiedade, depressão, angústia, culpa, relacionamentos conflituosos, buscando melhorar a saúde mental e emocional dos meus clientes, desenvolvendo autoconhecimento, auto compreensão, autocuidado do sujeito e ajustamentos diante das possibilidades.
-                    Acredito que a psicoterapia é uma jornada, um processo que para alguns podem ser lento e até doloroso, afinal, lidamos com questões que podem ser traumáticas ou de difícil assimilação, mas seus resultados podem serem lindos e libertadores.
-                    Vamos juntos comigo nessa jornada? Será um prazer lhe receber!</p>
+                <p class = "desc"><?php echo $row['texto']?></p>
         </div>
 </div>
     

@@ -2,7 +2,7 @@
     session_start();
     include_once "../../conexao.php";
     $outgoing_id = $_SESSION['unique_id'];
-    $sql = "SELECT * FROM cad_usuario WHERE NOT unique_id = 
+    $sql = "SELECT * FROM cad_usuario WHERE  unique_id = 
     {$outgoing_id} ORDER BY nome ASC";
     $query = mysqli_query($conn, $sql);
     $output = "";

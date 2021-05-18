@@ -7,41 +7,16 @@
     --fonte-titulo: 'Antonio', sans-serif;
     --fonte-texto: 'Oswald', sans-serif;
   }
-.pesquisa input[type="text"]{
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid #000000;
-    height: 40px;
-    color: #333333;
-    font-family: var(--fonte-titulo);
-    font-size: 18px;
-    padding-left: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.pesquisa input[type="submit"]{
-    background-color: var(--cor-principal);
-    width: 100px;
-    height: 40px;
-    border: 1px solid #000000;
-    color: var(--cor-titulo);
-    font-family: var(--fonte-titulo);
-    font-size: 18px;
-    padding-left: 10px;
-    margin-left: -5px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.card_psicologo {
+
+  .card_psicologo {
     margin-top: 80px;
     background: var(--cor-principal);
     width: 1120px;
-    height: 520px;
+    height: 620px;
     border-radius: 40px;
     display: flex;
     flex-direction: row;
     box-shadow: 10px 10px 15px #333333be;
-    cursor: pointer;
 }
 .card_psicologo div.coluna{
     display: flex;
@@ -84,14 +59,21 @@
     font-family: var(--fonte-texto);
     line-height: -8px;
 }
-.card_psicologo .coluna2 hr{
-    border: 3;
-	border-top: 1px solid #ffffff;
-    width: 600px;
-}
-.card_psicologo .coluna2 .texto{
-    color: var(--cor-texto);
-    font-size: 18px;
+.card_psicologo .coluna2 .alter{
+    width: 588px;
+    height: 50px;
+    margin-top: 50px;
+    border: 3px solid #FFFFFF;
+    background: var(--cor-principal);
     font-family: var(--fonte-texto);
-    padding-right: 20px;
+    color: var(--cor-titulo);
+    font-size: 24px;
+    border-radius: 10px;
+}
+.card_psicologo .coluna2 .alter:hover{
+    background: var(--cor-titulo);
+    color: var(--cor-principal);
+}
+.alter{
+    cursor: pointer;
 }

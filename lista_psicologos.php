@@ -84,6 +84,9 @@
                 <div class='btn_chat'>
                     <a href='chat/chat.php?user_id=$psic[unique_id]'><button class='chat'>Chat</button></a>
                 </div>
+                <div class='btn_chat'>
+                <a href='psicologo.php?psic=$psic[unique_id]' target='_self'><button class='chat'>Ver</button></a>
+            </div>
             </div>
             <div class='coluna2'>
                 <div class='info'>
@@ -100,7 +103,7 @@
             </div>
         </div>";
             }?>
-
+<a href='psicologo.php?psicologo=$psic[unique_id]'>
 
     <script src="js/navbar.js"></script>
     

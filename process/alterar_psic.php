@@ -99,7 +99,7 @@
 			require_once "../conexao.php";
 				session_start();
 				if(isset($_SESSION['unique_id'])){
-					$query = "SELECT nome, nascimento, telefone, sexo, email, cpf, cep, rua, num, bairro, cidade, estado, crp, foto 
+					$query = "SELECT *
 							 FROM psicologos WHERE unique_id = ".$_SESSION['unique_id'];
 					$executar = mysqli_query($conn,$query);
 					$profissional = mysqli_fetch_array($executar);

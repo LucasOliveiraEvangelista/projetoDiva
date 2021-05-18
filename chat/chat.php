@@ -36,7 +36,7 @@
         <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
         <div class="details">
           <span><?php echo $row['nome'] ?></span>
-          <p><?php echo $row['status']; ?></p>
+          <p><?php echo $row['status'] ?></p>
         </div>
       </header>
       <div class="chat-box">
