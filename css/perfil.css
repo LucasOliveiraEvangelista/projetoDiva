@@ -67,6 +67,7 @@
     border-radius: 10px;
     margin-left: 110px;
     margin-top: 80px;
+    cursor: pointer;
 }
 .card_psicologo .coluna2{
     display: flex;

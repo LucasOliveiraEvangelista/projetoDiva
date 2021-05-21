@@ -6,6 +6,17 @@
 
 email                   senha           tabela
 paciente@gmail.com      12345           cad_usuario
-test.e@gmailcom         12345           cad_usuario
 psic4@gmail.com         12345           psicologos
 psicologo3@gmail.com    12345           psicologos
+
+
+
+falta as especialidades, experiencias, e o agendamento
+fazer  com javascript o agendamento
+fazer responsividade
+
+fazer css da agendamento, 
+update e delete do agendamento
+fazer a marcação de consulta 
+fazer pagina de dashboard
+e verificação dos horário

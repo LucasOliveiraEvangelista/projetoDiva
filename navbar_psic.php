@@ -18,9 +18,9 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="lista_psicologos.php" class="nav__link ">
-                    <i class="fas fa-th-large"></i>
-                        <span class="nav__name">Feed</span>
+                    <a href="agenda.php" class="nav__link ">
+                    <i class="fas fa-calendar-week"></i>
+                        <span class="nav__name">Dashboard</span>
                     </a>
                     
                     <a href="consulta.php" class="nav__link">

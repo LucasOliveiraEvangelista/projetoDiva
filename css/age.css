@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+
+:root {
+    --cor-principal: #564a9e;
+    --cor-texto: #d9d9d9;
+    --cor-titulo: #FFFFFF;
+    --fonte-titulo: 'Antonio', sans-serif;
+    --fonte-texto: 'Oswald', sans-serif;
+  }
+.formulario{
+  width: 1115px;
+  height: 190px;
+  background: var(--cor-principal);
+  border-radius: 40px;
+}
+.formulario .dia, .formulario .horas{
+  text-align: center;
+  margin-top: 10px;
+}
+.formulario span{
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  margin: 0 auto;
+}
+.formulario .titulo{
+  text-align: center;
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+}
+.formulario input{
+  display: flex;
+  margin: 0 auto;
+  width: 220px;
+  border: 4px solid #ffffff;
+  font-family: var(--fonte-texto);
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 10px;
+  background: transparent;
+  margin-top: 16px;
+  text-align: center;
+  justify-content: center;
+}
+.formulario select{
+  height: 28px;
+  color: #FFFFFF;
+  font-family: var(--fonte-texto);
+  background-color: #564a9e;
+  border: transparent;
+}
+.horarios{
+  background-color: var(--cor-principal);
+  width: 1100px;
+  height: 280px;
+  border-radius: 20px;
+}
+.horarios p{
+  text-align: center;
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+  font-size: 32px;
+}
+.horarios .horas button{
+  color: #FFFFFF;
+  margin-right: 10px;
+  margin-left: 8px;
+  margin-top: 8px;
+  border:  4px solid #ffffff;
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--fonte-texto);
+  font-size: 18px;
+
+}
