@@ -1,3 +1,10 @@
+<?php
+// session_start();
+// if (!isset($_SESSION['unique_id'])) {
+// header("Location: login.php");
+// } exit;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +41,12 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="agenda.php" class="nav__link ">
+                    <a href="dashboard.php" class="nav__link ">
                     <i class="fas fa-calendar-week"></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="consulta.php" class="nav__link">
+                    <a href="agenda.php" class="nav__link">
                     <i class="far fa-calendar-alt"></i>
                         <span class="nav__name">Consulta</span>
                     </a>
@@ -114,8 +121,8 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
+        
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Segunda-Feira' ORDER BY dia DESC");
        
        ?>
@@ -133,8 +140,7 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Terça-Feira' ORDER BY hora_inicio DESC");
        
        ?>
@@ -152,8 +158,7 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Quarta-Feira' ORDER BY hora_inicio ASC");
        
        ?>
@@ -171,8 +176,7 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Quinta-Feira' ORDER BY hora_inicio ASC");
        
        ?>
@@ -190,8 +194,7 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Sexta-Feira' ORDER BY hora_inicio ASC");
        
        ?>
@@ -209,8 +212,7 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Sábado' ORDER BY hora_inicio ASC");
        
        ?>
@@ -228,8 +230,7 @@
     <div class="horarios">
         <?php
         
-        $id = $_SESSION['unique'];
-        $id = "687908762";
+        $id = $_SESSION['unique_id'];
         $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Domingo' ORDER BY hora_inicio ASC");
        
        ?>

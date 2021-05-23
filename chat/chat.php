@@ -35,6 +35,7 @@
         ?>
         <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
         <div class="details">
+        <?php echo "<img src='../imagens/$row[foto]'>";?>
           <span><?php echo $row['nome'] ?></span>
           <p><?php echo $row['status'] ?></p>
         </div>

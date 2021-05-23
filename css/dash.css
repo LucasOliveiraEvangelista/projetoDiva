@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+
+:root {
+    --cor-principal: #564a9e;
+    --cor-texto: #d9d9d9;
+    --cor-titulo: #FFFFFF;
+    --fonte-titulo: 'Antonio', sans-serif;
+    --fonte-texto: 'Oswald', sans-serif;
+  }
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+.conteudo .card{
+    margin-right: 40px;
+    background: var(--cor-principal);
+    font-family: var(--fonte-titulo);
+    font-size: 24px;
+    color: var(--cor-titulo);
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px #33333374;
+}
+.conteudo .card span{
+    padding-left: 10px;
+    font-size: 18px;
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+}
+
+.conteudo .card p{
+    padding-left: 10px;
+}
+.conteudo .card button{
+    display: block;
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 3px solid var(--cor-titulo);
+    background: transparent;
+    color: var(--cor-titulo);
+    width: 80px;
+    border-radius: 6px;
+    font-family: var(--fonte-texto);
+    font-size: 16px;
+}
+.conteudo .card button:hover{
+    cursor: pointer;
+    color: #564a9e;
+    background: #ffffff;
+}

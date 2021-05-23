@@ -1,0 +1,106 @@
+<?php
+    require_once 'conexao.php';
+    session_start();
+    
+        $id = $_SESSION['unique_id'];
+        $consultas = mysqli_query($conn, "SELECT * FROM consulta WHERE id_psic = '$id' AND realizada = 1");
+        $marcadas = mysqli_num_rows($consultas);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo "Consultas Realizadas ($marcadas)";?></title>
+
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/marcada.css">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+
+        <div class="header__img">
+            <img src="assets/img/perfil.jpg" alt="">
+        </div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+            <div>
+                <a href="index.php" class="nav__logo active">
+                    <img class = "logo" src="assets/logo.png" alt="">
+                    <span class="nav__logo-name">Divã</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="dashboard.php" class="nav__link ">
+                    <i class="fas fa-calendar-week"></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <a href="agenda.php" class="nav__link">
+                    <i class="far fa-calendar-alt"></i>
+                        <span class="nav__name">Consulta</span>
+                    </a>
+                    <a href="chat/users.php" class="nav__link">
+                    <i class="far fa-comment-alt"></i>
+                        <span class="nav__name">Chat</span>
+                    </a>
+
+                    <a href="sobre.php" class="nav__link">
+                    <i class="fas fa-book"></i>
+                        <span class="nav__name">Sobre nós</span>
+                    </a>
+
+                    <a href="perfil_psic.php" class="nav__link">
+                    <i class="far fa-user"></i>
+                        <span class="nav__name">Perfil</span>
+                    </a>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+    <script src="js/navbar.js"></script>
+    <?php
+    $acha = mysqli_query($conn, "SELECT u.nome, u.foto, u.unique_id, c.id_user, c.id_consulta, c.horario, c.realizada, c.id_psic, c.pago, c.tipo_pagamento FROM cad_usuario AS u INNER JOIN consulta AS c ON u.unique_id = c.id_user  WHERE id_psic = '$id' AND realizada = 1");
+        
+        while($consul = mysqli_fetch_array($acha)){
+            echo "<div class='pacientes'>
+            <div class='card'>
+                <div class='col1'>
+                <img src='imagens/user.png' alt='imagens'>
+                </div>
+                <div class='col2'>
+                <p>$consul[nome]</p>
+                <p>$consul[horario]</p>
+                <p>Pagamento: $consul[tipo_pagamento]</p>
+                <p>Pago: $consul[pago]</p>
+                </div>
+                <div class='col3'>
+                <a href='chat/chat.php?user_id=$consul[id_user]'><button class='chat'>Chat</button></a>
+                <form action='process/up_consultas.php' method='POST'>
+                    <input type='hidden' name='realizada' value='$consul[id_consulta]'>
+                    <input type='submit' class='realizada' value='Realizada'>
+                </form>
+                <form action='process/delete_consultas.php' method='POST'>
+                    <input type='hidden' name='cancelada' value='$consul[id_consulta]'>
+                    <input type='submit' class='cancelada' value='Cancelar'>
+                </form>
+                </div>
+            </div>
+            
+        </div>";
+        }
+    ?>
+   
+</body>
+</html>

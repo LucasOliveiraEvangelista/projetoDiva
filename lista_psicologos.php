@@ -73,7 +73,7 @@
     </div>
 
     <?php
-        $query = "SELECT *  FROM psicologos WHERE situacao = '1' ORDER BY nome ASC";
+        $query = "SELECT * FROM psicologos WHERE situacao = '1' ORDER BY nome ASC";
         $exec = mysqli_query($conn, $query);
         ?>
         <?php
@@ -82,7 +82,7 @@
             <div class='coluna'>
             <img src='imagens/$psic[foto]' alt='user'>
                 <div class='btn_chat'>
-                    <a href='chat/chat.php?user_id=$psic[unique_id]'><button class='chat'>Chat</button></a>
+                    <a href='chat_psic/chat.php?user_id=$psic[unique_id]'><button class='chat'>Chat</button></a>
                 </div>
                 <div class='btn_chat'>
                 <a href='psicologo.php?psic=$psic[unique_id]' target='_self'><button class='chat'>Ver</button></a>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+
+:root {
+    --cor-principal: #564a9e;
+    --cor-texto: #d9d9d9;
+    --cor-titulo: #FFFFFF;
+    --fonte-titulo: 'Antonio', sans-serif;
+    --fonte-texto: 'Oswald', sans-serif;
+  }
+.pacientes{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.pacientes .card{
+    background: var(--cor-principal);
+    width: 800px;
+    height: 210px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px #33333374;
+    margin-right: 20px;
+    
+}
+.pacientes .card img{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-top: 18px;
+    margin-right: 60px;
+}
+.pacientes .card p{
+    margin-top: 12px;
+    margin-right: 80px;
+    font-family: var(--fonte-texto);
+    font-size: 28px;
+    line-height: 24px;
+    color: var(--cor-titulo);
+}
+.realizada, .cancelada, .chat{
+    width: 120px;
+    height: 60px;
+    font-family: var(--fonte-texto);
+    color: var(--cor-titulo);
+    border: 3px solid var(--cor-titulo);
+    font-size: 22px;
+    margin-right: 10px;
+    margin-top: 6px;
+    display: block;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.realizada{
+    background: #328403;
+}
+.cancelada{
+    background: #b40404;
+}
+.chat{
+    background: var(--cor-principal);
+}

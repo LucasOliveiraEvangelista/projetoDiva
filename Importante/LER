@@ -15,8 +15,18 @@ falta as especialidades, experiencias, e o agendamento
 fazer  com javascript o agendamento
 fazer responsividade
 
-fazer css da agendamento, 
-update e delete do agendamento
-fazer a marcação de consulta 
-fazer pagina de dashboard
-e verificação dos horário
+
+fazer enviar email avisando quem marcou a consulta e quando vai ser a consulta e o meio de pagamento
+enviar email para o usuario caso o psicologo cancele a consulta
+os meios de pagamento
+e verificação dos horários
+
+pagina das consultas realizadas e marcadas
+
+
+arrumar a session do agenda.php e todas as outras
+
+introdução , elementos, citações, 1 direto e 1 indireto, swot, analise de mercado, estruturação do projeto, business model canvas, marca
+story teling, ciclo de vida
+
+desativar e deletar conta

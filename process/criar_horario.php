@@ -8,6 +8,7 @@
 
     // $id = $_SESSION['unique_id'];
     $id = "687908762";
+    $marcado = 0;
 
     if($inicio == $fim){
         echo "<script>
@@ -16,7 +17,7 @@
         </script>";
     }else{
 
-    $query = mysqli_query($conn, "INSERT INTO horarios (dia, hora_inicio, hora_fim, id_psic) VALUES ('$dia', '$inicio', '$fim', $id)");
+    $query = mysqli_query($conn, "INSERT INTO horarios (dia, hora_inicio, hora_fim, id_psic, marcado) VALUES ('$dia', '$inicio', '$fim', '$id', '$marcado')");
 
     if($query){
         echo "<script>
