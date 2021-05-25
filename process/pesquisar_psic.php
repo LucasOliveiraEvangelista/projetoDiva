@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encontrar Consultas</title>
-    <link rel="stylesheet" href="../css/feed.css">
+    <link rel="stylesheet" href="../css/perfil.css">
     <link rel="stylesheet" href="../css/navbar.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -69,24 +69,37 @@
 	
 			$pesquisar = $_POST['pesquisar'];
 			$executar = "SELECT * FROM psicologos WHERE nome LIKE '%$pesquisar%' LIMIT 5";
-			$resultados = mysqli_query($conexao, $executar);
+			$resultados = mysqli_query($conn, $executar);
         ?>
 
         <div class="main">
         <ul class="cards">
         <?php
-           while($profissional = mysqli_fetch_array($resultados)){
-            echo "<li class='cards_item'>
-                    <div class='card'>
-                        <div class='card_image'><img src='../imagens-profissional/fotos-capa/$profissional[foto]'></div>
-                            <div class='card_content'>";
-									echo "<h2 class='card_title'>$profissional[nome]</h2>";
-                                    echo "<p class='card_text'>$profissional[email]</p>";
-									echo "<button class='infos'>Infantil</button>
-                            <a href='marcar_consulta.php'><button class='btn card_btn'>Marcar</button></a>
-                        </div>
+           while($psic = mysqli_fetch_array($resultados)){
+            echo "<div class='card_psicologo'>
+            <div class='coluna'>
+            <img src='../imagens/$psic[foto]' alt='user'>
+                <div class='btn_chat'>
+                    <a href='chat_psic/chat.php?user_id=$psic[unique_id]'><button class='chat'>Chat</button></a>
                 </div>
-            </li>";
+                <div class='btn_chat'>
+                <a href='psicologo.php?psic=$psic[unique_id]' target='_self'><button class='chat'>Ver</button></a>
+            </div>
+            </div>
+            <div class='coluna2'>
+                <div class='info'>
+                    <p class = 'nome'>$psic[nome]</p>
+                    <p>Formado na: $psic[diploma]</p>
+                    <p>CRP: $psic[crp]</p>
+                    <p>Estado: $psic[estado]</p>
+                    <p>Valor: R$ $psic[valor]/$psic[tempo_consulta]</p>
+                </div>
+                <hr>
+                <p class='texto'>
+                $psic[resumo]
+                </p>
+            </div>
+        </div>";;
             }?>
 
         </ul>

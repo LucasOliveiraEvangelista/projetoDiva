@@ -1,32 +1,21 @@
  arquivo conexao.php na raiz da pasta
 
-
-
-
-
 email                   senha           tabela
-paciente@gmail.com      12345           cad_usuario
-psic4@gmail.com         12345           psicologos
+paciente@gmail.com      12345           cad_usuari
 psicologo3@gmail.com    12345           psicologos
 
 
-
-falta as especialidades, experiencias, e o agendamento
-fazer  com javascript o agendamento
 fazer responsividade
-
-
 fazer enviar email avisando quem marcou a consulta e quando vai ser a consulta e o meio de pagamento
 enviar email para o usuario caso o psicologo cancele a consulta
 os meios de pagamento
 e verificação dos horários
-
-pagina das consultas realizadas e marcadas
-
-
 arrumar a session do agenda.php e todas as outras
+ajustar o editar psicologo, escolher os nichos e especialidades
+
 
 introdução , elementos, citações, 1 direto e 1 indireto, swot, analise de mercado, estruturação do projeto, business model canvas, marca
 story teling, ciclo de vida
+
 
 desativar e deletar conta

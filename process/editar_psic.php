@@ -17,6 +17,7 @@
 	$resumo = $_POST['resumo'];
 	
 	session_start();
+	$id = $_SESSION['unique_id'];
 	$checagem="SELECT telefone FROM psicologos WHERE telefone='$telefone' 
 			   AND unique_id <> $_SESSION[unique_id]";
 			   //echo $checagem;exit;
@@ -87,7 +88,7 @@
 	}else if($idioma==""){
 		echo "
 				<script>
-					alert('Digite o número da sua residência!');
+					alert('Digite os idiomas que você fala');
 					history.back();
 				</script>
 			";
@@ -151,7 +152,7 @@
 	}
 	else{	
 		$query = "UPDATE psicologos SET nome='$nome', nascimento='$data_nasc', telefone='$telefone', sexo='$sexo', cep='$cep', tempo_experiencia='$ano', tempo_consulta='$tempo', local ='$local', valor='$valor', estado='$estado', texto='$texto', idioma='$idioma', remarcacao='$remarca', resumo='$resumo'
-				   WHERE unique_id = $_SESSION[unique_id]";
+				   WHERE unique_id = $id";
 		$atualizar = mysqli_query($conn, $query);
 
 		if($atualizar == 1){
@@ -165,7 +166,7 @@
 			echo "
 				<script>
 				alert('Erro ao editar');
-				location.href='alterar_psico.php';
+				history.back();
 				</script>
 			";  
 		}

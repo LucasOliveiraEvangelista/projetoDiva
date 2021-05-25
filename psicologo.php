@@ -114,19 +114,24 @@
     <div class="cards">
         <div class="especialidades">
             <p class="nome">Especialidades</p>
-            <p>Ansiedade</p>
-            <p>Depressão</p>
-            <p>Medo e Fobias</p>
-            <p>Raiva</p>
-            <p>Abuso Psicológico</p>
+
+            <?php
+            
+            $espec = mysqli_query($conn, "SELECT * FROM especialidade WHERE id_psico = '$row[unique_id]' ORDER BY nome ASC");
+                while ($especialidades = mysqli_fetch_array($espec)){
+                    echo "<p>$especialidades[nome]</p>";
+                }
+            ?>
         </div>
         <div class="experiencias">
-            <p class="nome">Experiência</p>
-            <p>Gestalt Terapia</p>
-            <p>Psicológia Positiva</p>
-            <p>Psicológia Educacional</p>
-            <p>Psicológia Emocional</p>
+            <p class="nome">Experiências</p>
+            <?php
             
+            $exp = mysqli_query($conn, "SELECT * FROM nicho_psicologico WHERE id_psico = '$row[unique_id]' ORDER BY nicho ASC");
+                while ($experiencia = mysqli_fetch_array($exp)){
+                    echo "<p>$experiencia[nicho]</p>";
+                }
+            ?>
             
         </div>
     </div>
