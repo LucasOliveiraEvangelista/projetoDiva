@@ -40,6 +40,7 @@ root{
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
     font-weight: 400;
+    transition: 0.7s;
 }
 .nav .logo img{
     width: 90px;
@@ -79,18 +80,7 @@ root{
 .texto .texto-roxo{
     color: #564A9E;
 }
-.texto a button{
-    width: 292px;
-    height: 64px;
-    border-radius: 40px;
-    background-color: #564A9E;
-    color: #ffffff;
-    font-family: 'Oswald', sans-serif;
-    font-size: 24px;
-    border: none;
-    box-shadow: 8px 5px 4px #33333333;
-    cursor: pointer;
-}
+
 .imagem{
     margin-top: 160px;
     margin-left: 30px;
@@ -103,10 +93,24 @@ root{
 
 
 
-
+.wave_cima a button{
+    width: 292px;
+    height: 64px;
+    border-radius: 40px;
+    background-color: #564A9E;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    border: none;
+    box-shadow: 8px 5px 4px #33333333;
+    cursor: pointer;
+    margin-top: 20px;
+}
 .wave_cima{
+    
     margin-bottom: -5px;
 }
+
 .wave_baixo{
     margin-top: -5px;
 }
@@ -191,6 +195,7 @@ root{
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
     font-weight: 200;
+    transition: 0.5s;
 }
 
 
@@ -288,6 +293,7 @@ root{
     width: 210px;
     margin: 0 auto;
     margin-top: 150px;
+    transition: 0.5s;
 }
 .card .amarelo{
     text-align: center;
@@ -300,6 +306,7 @@ root{
     width: 210px;
     margin: 0 auto;
     margin-top: 150px;
+    transition: 0.5s;
 }
 .card .tipo{
     font-size: 14px;

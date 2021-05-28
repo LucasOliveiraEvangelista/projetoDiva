@@ -113,8 +113,9 @@
 		<div class="card_psicologo">
         <div class="coluna">
 
-		<form class = "formulario"  action="editar_usuario.php" method="POST" enctype="multpart/data-form">
-            <?php echo "<img src='../imagens/$usuario[foto]' alt='user'>"; ?>
+		<form class = "formulario"  action="editar_usuario.php" method="POST" enctype="multipart/form-data">
+            <?php echo "<img src='../imagens/$usuario[foto]'>" ?>
+			<input type="file" name="arquivo">
         </div>
 
         <div class="coluna2">

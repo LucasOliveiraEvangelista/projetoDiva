@@ -6,8 +6,8 @@
 
     session_start();
 
-    // $id = $_SESSION['unique_id'];
-    $id = "687908762";
+    $id = $_SESSION['unique_id'];
+    // $id = "687908762";
     $marcado = 0;
 
     if($inicio == $fim){

@@ -91,7 +91,7 @@
                         echo "<script>
                             alert('Cadastrado com sucesso! Seja bem-vindo!! A validação do CRP leva de 3 á 5 dias');
                             alert('Enquanto isso complete suas informações no seu Perfil');
-                            location.href='../perfil-profissional.php';
+                            location.href='../perfil_psic.php';
                             </script>";
 
                         

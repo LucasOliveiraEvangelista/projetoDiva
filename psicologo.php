@@ -18,8 +18,9 @@
 
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/psic.css">
+    <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" type = "text/css" href="css/age.css">
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -89,13 +90,13 @@
                 echo "$tempo Anos"; ?></p>
                     <p>Nasceu em: <?php echo $row['nascimento']?></p>
                     <p>Sexo: <?php 
-								if($usuario['sexo']=='f'){
+								if($row['sexo']=='f'){
 									echo "Feminino";
-								}else if($usuario['sexo']=='m'){
+								}else if($row['sexo']=='m'){
 									echo "Masculino";
-								}else if($usuario['sexo']=='o'){
+								}else if($row['sexo']=='o'){
 									echo "Outro";
-								}else if($usuario['sexo']=='n'){
+								}else if($row['sexo']=='n'){
 									echo "Não sei responder";
 								}else{
 									echo "Pefiro não responder";
@@ -155,136 +156,166 @@
                 <p class = "desc"><?php echo $row['texto']?></p>
         </div>
     </div>
+
+    <div class="navigation-manual">
+        <label for="seg" class="manual-btn">S</label>
+        <label for="ter" class="manual-btn">T</label>
+        <label for="qua" class="manual-btn">Q</label>
+        <label for="qui" class="manual-btn">Q</label>
+        <label for="sex" class="manual-btn">S</label>
+        <label for="sab" class="manual-btn">S</label>
+        <label for="dom" class="manual-btn">D</label>
+    </div>
+
+    <div class="slider">
+        <div class="slides">
+                <input type="radio" name="radio-btn" id="seg">
+                <input type="radio" name="radio-btn" id="ter">
+                <input type="radio" name="radio-btn" id="qua">
+                <input type="radio" name="radio-btn" id="qui">
+                <input type="radio" name="radio-btn" id="sex">
+                <input type="radio" name="radio-btn" id="sab">
+                <input type="radio" name="radio-btn" id="dom">
+
+                
+
+                <div class="horarios first">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Segunda-Feira' ORDER BY dia DESC");
+            
+            ?>
+                <div class="dia">
+                    <p>Segunda-Feira</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="horarios">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Terça-Feira' ORDER BY hora_inicio DESC");
+            
+            ?>
+                <div class="dia">
+                    <p>Terça-Feira</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="horarios">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Quarta-Feira' ORDER BY hora_inicio ASC");
+            
+            ?>
+                <div class="dia">
+                    <p>Quarta-Feira</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="horarios">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Quinta-Feira' ORDER BY hora_inicio ASC");
+            
+            ?>
+                <div class="dia">
+                    <p>Quinta-Feira</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="horarios">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Sexta-Feira' ORDER BY hora_inicio ASC");
+            
+            ?>
+                <div class="dia">
+                    <p>Sexta-Feira</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="horarios">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Sábado' ORDER BY hora_inicio ASC");
+            
+            ?>
+                <div class="dia">
+                    <p>Sábado</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="horarios">
+                <?php
+                
+                $id = $_GET['psic'];
+                $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Domingo' ORDER BY hora_inicio ASC");
+            
+            ?>
+                <div class="dia">
+                    <p>Domingo</p>
+                    <div class="horas">
+                        <?php
+                            while ($calenda = mysqli_fetch_array($meus)){
+                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
    
-        
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Segunda-Feira' ORDER BY dia DESC");
-       
-       ?>
-        <div class="dia">
-            <p>Segunda-Feira</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                        echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Terça-Feira' ORDER BY hora_inicio DESC");
-       
-       ?>
-        <div class="dia">
-            <p>Terça-Feira</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                        echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Quarta-Feira' ORDER BY hora_inicio ASC");
-       
-       ?>
-        <div class="dia">
-            <p>Quarta-Feira</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                        echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Quinta-Feira' ORDER BY hora_inicio ASC");
-       
-       ?>
-        <div class="dia">
-            <p>Quinta-Feira</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                        echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Sexta-Feira' ORDER BY hora_inicio ASC");
-       
-       ?>
-        <div class="dia">
-            <p>Sexta-Feira</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                        echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Sábado' ORDER BY hora_inicio ASC");
-       
-       ?>
-        <div class="dia">
-            <p>Sábado</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                        echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="horarios">
-        <?php
-        
-        $id = $_GET['psic'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0 AND dia = 'Domingo' ORDER BY hora_inicio ASC");
-       
-       ?>
-        <div class="dia">
-            <p>Domingo</p>
-            <div class="horas">
-                <?php
-                    while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
-                         }
-                ?>
-            </div>
-        </div>
-    </div>
-    
+   
+   
+    <script src="js/ag.js"></script>
     <script src="js/navbar.js"></script>
+
+   
 </body>
 </html>
 

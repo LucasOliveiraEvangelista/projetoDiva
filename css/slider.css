@@ -1,0 +1,70 @@
+body{
+    overflow-x: hidden;
+}
+.slider{
+    width: 1120px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+.slides input{
+    display: none;
+
+}
+.horarios{
+    transition: 3s;
+    margin-top: 120px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.manual-btn{
+    border: 2px solid var(--cor-principal);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    color: var(--cor-principal);
+
+}
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+.manual-btn:hover{
+    background: var(--cor-principal);
+    color: var(--cor-titulo);
+}
+
+#seg:checked ~ .first{
+    margin-left: 0;
+}
+#ter:checked ~ .first{
+    margin-left: -15%;
+}
+#qua:checked ~ .first{
+    margin-left: -40%;
+}
+#qui:checked ~ .first{
+    margin-left: -60%;
+}
+#sex:checked ~ .first{
+    margin-left: -80%;
+}
+#sab:checked ~ .first{
+    margin-left: -100%;
+}
+#dom:checked ~ .first{
+    margin-left: -120%;
+}

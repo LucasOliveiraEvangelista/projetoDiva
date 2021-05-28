@@ -21,15 +21,16 @@
     // Dinheiro, pix, cartao, mercado pago, transferencia
 
     
-
-    $query = mysqli_query($conn, "INSERT INTO consulta (horario, id_psic, id_user, realizada, pago, tipo_pagamento) VALUES ('$hr', '$id_psic', '$id_user', '0', 'Não', '$tipo')");
-    if($query){
-        echo "<script>
-                    alert('Consulta marcada com sucesso!');
-                    location.href='../psicologo.php';
-                    </script>";
+    $marcou = mysqli_query($conn, "UPDATE horarios SET marcado = 1 WHERE id_agendamento = '$consulta'");
+    if($marcou){
+        $query = mysqli_query($conn, "INSERT INTO consulta (horario, id_psic, id_user, realizada, pago, tipo_pagamento) VALUES ('$hr', '$id_psic', '$id_user', '0', 'Não', '$tipo')");
+        if($query){
+            echo "<script>
+                        alert('Consulta marcada com sucesso!');
+                        location.href='../psicologo.php';
+                        </script>";
+        }
     }
-
     // meios de pagamento 
 
 ?>

@@ -112,15 +112,16 @@
 		<div class="card_psicologo">
         <div class="coluna">
 
-		<form class = "formulario"  action="editar_psic.php" method="POST" enctype="multpart/data-form">
-            <?php echo "<img src='../imagens/$usuario[foto]' alt='user'>"; ?>
+		<form class = "formulario"  action="editar_psic.php" method="POST" enctype="multipart/form-data">
+            <?php echo "<img src='../imagens/$usuario[foto]' value='$usuario[foto]' alt='user'>"; ?>
+			<input type="file" name="arquivo">
         </div>
 
         <div class="coluna2">
             <div class="info">
                 <p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
                 <p>CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
-                <p>Nasceu em: <?php echo "<input type='date' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
+                <p>Nasceu em: <?php echo "<input type='text' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
                 <p>Sexo: <select name="sexo">
 											<?php 
 												if($usuario['sexo']=='f'){
@@ -176,7 +177,7 @@
                 <p>Ano que começou: <?php echo "<input type='text' name='ano' value='$usuario[tempo_experiencia]'/>" ?></p>
                 <p>Politica de remarcação: <?php echo "<input type='text' name='remarcacao' value='$usuario[remarcacao]'/>" ?></p>
                 <p>Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
-                <p>Descrição de carreira: <?php echo "<textarea name='resumo'>$usuario[texto]</textarea>"?></p>
+                <p>Descrição de carreira: <?php echo "<textarea name='texto'>$usuario[texto]</textarea>"?></p>
                 <p>Resumo: <?php echo "<textarea name='resumo'>$usuario[resumo]</textarea>"?></p>
             </div>
 

@@ -52,7 +52,7 @@
 }
 .horarios{
   background-color: var(--cor-principal);
-  width: 1100px;
+  width: 800px;
   height: 280px;
   border-radius: 20px;
 }
@@ -72,5 +72,11 @@
   background: transparent;
   font-family: var(--fonte-texto);
   font-size: 18px;
+  cursor: pointer;
+
+}
+.horarios .horas button:hover{
+  color: var(--cor-principal);
+  background: var(--cor-titulo);
 
 }
