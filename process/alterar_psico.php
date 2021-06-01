@@ -112,13 +112,17 @@
 		<div class="card_psicologo">
         <div class="coluna">
 
-		<form class = "formulario"  action="editar_psic.php" method="POST" enctype="multipart/form-data">
+		<form class = "formulario"  action="foto_psic.php" method="POST" enctype="multipart/form-data">
             <?php echo "<img src='../imagens/$usuario[foto]' value='$usuario[foto]' alt='user'>"; ?>
-			<input type="file" name="arquivo">
+			<label for="foto">escolher</label>
+			<input type="file" name="pic" accept="image/*" id = "foto" hidden value="<?php echo $usuario['foto']?>">
+			<p><input type="submit"></p>
+			</form>
         </div>
 
         <div class="coluna2">
             <div class="info">
+			<form class = "formulario"  action="editar_psic.php" method="POST" enctype="multipart/form-data">
                 <p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
                 <p>CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
                 <p>Nasceu em: <?php echo "<input type='text' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
@@ -188,7 +192,12 @@
 						<li><a href="excluir_psic.php"><button>Excluir</button></a></li>
 					</ul>
 				</div>
-				</form>
+			</form>
+			<form action="desativa_psic.php" method="post" enctype="multipart/data-form">
+						<li><a href="desativa_psic.php"><button>Desativar conta</button></a></li>
+					</ul>
+				</div>
+			</form>
         <script src="../js/navbar.js"></script>
 	<?php
 		}else{

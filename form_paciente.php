@@ -21,7 +21,7 @@
 
 <?php
 
-require_once 'navbar.php';
+require_once 'navbar_user.php';
 
 ?>
     <main>

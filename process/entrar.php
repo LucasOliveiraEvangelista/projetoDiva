@@ -9,8 +9,7 @@
 
     session_start();
 
-    // $query = "SELECT email, senha from cad_usuario WHERE email = '$email' AND senha = '$senha' UNION SELECT email, senha FROM cad_profissional WHERE email = '$email' AND  senha = '$senha'";
-    // $buscar = mysqli_query($conn, $query);
+    
 
     if($op == "paci"){
         if(!empty($email) && !empty($senha)){
@@ -19,6 +18,13 @@
                 $row = mysqli_fetch_assoc($sql);
                 if($senhacry == $row['senha']){
                     $status = "Online";
+                    $desa = mysqli_query($conn, "SELECT * FROM cad_usuario WHERE email = '$email'");
+                    $ta = mysqli_fetch_array($desa);
+                    if($ta['desativada'] == 1){
+                        echo "<script>
+                        alert('Sua conta estava desativada, e esta sendo reativada novamente');
+                        </script>";
+                    }
                     $sql2 = mysqli_query($conn, "UPDATE cad_usuario SET status = '{$status}' WHERE unique_id = {$row['unique_id']}");
                     if($sql2){
                         $_SESSION['unique_id'] = $row['unique_id'];
@@ -47,7 +53,14 @@
             $row2 = mysqli_fetch_assoc($sql3);
             if($senhacry == $row2['senha']){
                 $status = "Online";
-                $sql4 = mysqli_query($conn, "UPDATE psicologos SET status = '{$status}' WHERE unique_id = {$row['unique_id']}");
+                $desa = mysqli_query($conn, "SELECT * FROM psicologos WHERE email = '$email'");
+                $ta = mysqli_fetch_array($desa);
+                if($ta['desativada'] == 1){
+                    echo "<script>
+                    alert('Sua conta estava desativada, e esta sendo reativada novamente');
+                    </script>";
+                }
+                $sql4 = mysqli_query($conn, "UPDATE psicologos SET status = '{$status}', desativada = 0 WHERE unique_id = {$row['unique_id']}");
                 if($sql3){
                     $_SESSION['unique_id'] = $row2['unique_id'];
                     echo "<script>
@@ -66,18 +79,5 @@
             echo 'Todos os campos são necessarios';
         }
     }
-
-    // if (mysqli_num_rows($buscar)<=0){
-    //     echo "<script>
-    //             alert('Erro Usuário inválido!');
-    //             history.back();
-    //             </script>"; 
-         
-    //     }else{
-    //         echo "<script>
-    //         alert('Bem-Vindo!');
-    //         location.href='../feed.php';
-    //         </script>";
-    //     }
     
 ?>

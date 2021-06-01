@@ -40,6 +40,7 @@ main .cad {
 main .cad a {
     text-decoration: none;
     color:#56286b;
+    padding-left: 20px;
 }
 
 main .alter {

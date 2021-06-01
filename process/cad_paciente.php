@@ -10,8 +10,6 @@
         $cep = $_POST['cep'];
         $tel = $_POST['telefone'];
 
-       
-
         if($nome == ""){
             echo "<script>
             alert('Ops! Campo nome vazio');
@@ -81,8 +79,8 @@
                 $_SESSION['email'] = $email;
                 $_SESSION['nome'] = $nome;
                 
-                $query= "INSERT INTO cad_usuario (nome, email, senha, nascimento, rg, cpf, cep, status, unique_id) 
-                VALUES ('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$status', '$ran_id')";
+                $query= "INSERT INTO cad_usuario (nome, email, senha, nascimento, rg, cpf, cep, status, unique_id, foto, telefone) 
+                VALUES ('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$status', '$ran_id', 'user.png', '$tels')";
                 $inserir = mysqli_query($conn, $query);
                 if($inserir){
                         $select_sql2 = mysqli_query($conn, "SELECT * FROM cad_usuario WHERE email = '{$email}'");
@@ -91,7 +89,7 @@
                                     $_SESSION['unique_id'] = $result['unique_id'];
                                     echo "<script>
                                         alert('Cadastrado com sucesso! Seja bem-vindo');
-                                        location.href='../feed-usuario.php';
+                                        location.href='../lista_psicologos.php';
                                         </script>";
                                 }else{
                                     echo "Email não existe";

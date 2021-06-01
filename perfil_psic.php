@@ -108,6 +108,7 @@
 
             <div class="btn">
                 <a href="process/alterar_psico.php"><button class="alter">Alterar Informações</button></a>
+                <a href="process/alterar_especialidades.php"><button class="alter">Alterar Especialidades</button></a>
             </div>
         </div>
     </div>

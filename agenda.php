@@ -93,7 +93,7 @@
             </div>
 
             <div class="horas">
-                <span>Hórario:</span>
+                <span>Horário:</span>
                 <select name="hora_inicio" id="1">
 
                     <?php 
@@ -131,7 +131,7 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
+                        echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                          }
                 ?>
             </div>
@@ -149,7 +149,7 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
+                         echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                          }
                 ?>
             </div>
@@ -159,7 +159,7 @@
         <?php
         
         $id = $_SESSION['unique_id'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Quarta-Feira' ORDER BY hora_inicio ASC");
+        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Quarta-Feira' ORDER BY hora_inicio DESC");
        
        ?>
         <div class="dia">
@@ -167,7 +167,7 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
+                        echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                          }
                 ?>
             </div>
@@ -177,7 +177,7 @@
         <?php
         
         $id = $_SESSION['unique_id'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Quinta-Feira' ORDER BY hora_inicio ASC");
+        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Quinta-Feira' ORDER BY hora_inicio DESC");
        
        ?>
         <div class="dia">
@@ -185,7 +185,7 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
+                        echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                          }
                 ?>
             </div>
@@ -195,7 +195,7 @@
         <?php
         
         $id = $_SESSION['unique_id'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Sexta-Feira' ORDER BY hora_inicio ASC");
+        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Sexta-Feira' ORDER BY hora_inicio DESC");
        
        ?>
         <div class="dia">
@@ -203,8 +203,7 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
-                         }
+                        echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                 ?>
             </div>
         </div>
@@ -213,7 +212,7 @@
         <?php
         
         $id = $_SESSION['unique_id'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Sábado' ORDER BY hora_inicio ASC");
+        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Sábado' ORDER BY hora_inicio DESC");
        
        ?>
         <div class="dia">
@@ -221,7 +220,7 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
+                        echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                          }
                 ?>
             </div>
@@ -231,7 +230,7 @@
         <?php
         
         $id = $_SESSION['unique_id'];
-        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Domingo' ORDER BY hora_inicio ASC");
+        $meus = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND dia = 'Domingo' ORDER BY hora_inicio DESC");
        
        ?>
         <div class="dia">
@@ -239,8 +238,9 @@
             <div class="horas">
                 <?php
                     while ($calenda = mysqli_fetch_array($meus)){
-                         echo "<button>$calenda[hora_inicio] - $calenda[hora_fim]</button>";
+                        echo "<a href='process/delete_horario.php?hora=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                          }
+                        }
                 ?>
             </div>
         </div>

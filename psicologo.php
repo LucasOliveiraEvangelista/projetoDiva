@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/psic.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" type = "text/css" href="css/age.css">
+   
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -63,7 +64,7 @@
                         <span class="nav__name">Sobre nós</span>
                     </a>
 
-                    <a href="perfil.php" class="nav__link">
+                    <a href="perfil_user.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
                     </a>
@@ -118,7 +119,7 @@
 
             <?php
             
-            $espec = mysqli_query($conn, "SELECT * FROM especialidade WHERE id_psico = '$row[unique_id]' ORDER BY nome ASC");
+            $espec = mysqli_query($conn, "SELECT * FROM esp_psico WHERE id_psic = '$row[unique_id]' ORDER BY nome ASC LIMIT 6");
                 while ($especialidades = mysqli_fetch_array($espec)){
                     echo "<p>$especialidades[nome]</p>";
                 }
@@ -128,7 +129,7 @@
             <p class="nome">Experiências</p>
             <?php
             
-            $exp = mysqli_query($conn, "SELECT * FROM nicho_psicologico WHERE id_psico = '$row[unique_id]' ORDER BY nicho ASC");
+            $exp = mysqli_query($conn, "SELECT * FROM tipo_nicho WHERE id_psic = '$row[unique_id]' ORDER BY nicho ASC LIMIT 6");
                 while ($experiencia = mysqli_fetch_array($exp)){
                     echo "<p>$experiencia[nicho]</p>";
                 }
@@ -307,6 +308,9 @@
             </div>
         </div>
     </div>
+
+
+    
 
 
    

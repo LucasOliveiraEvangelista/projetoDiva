@@ -1,0 +1,20 @@
+.hm div {display:none;position:relative}
+.hm:hover div {display:block;position:absolute;top:0;margin-left:40px}
+
+/* daqui pra baixo é só estética para demonstração */
+.hm {
+  width:1.5em;height:1.5em;
+  text-align:center;
+  font:20px/1.5em "segoe ui",arial,helvetica,sans-serif;
+  border:1px solid #999;
+  border-radius:50%;
+  color:#999;
+}
+
+.hm div {
+  width:8em;
+  color:#fff;
+  background:#999;
+  border-radius:5px;
+  padding:5px;
+}

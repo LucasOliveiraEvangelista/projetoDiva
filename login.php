@@ -17,9 +17,11 @@
 
     <main>
         <h1>Entrar na conta</h1>
+        <p>Não tem conta ainda crie já</p>
         <div class="cad">
-           <p><a href="form_paciente.php">Você Paciente não tem uma conta ainda? Então crie uma!</a></p>
-		   <p><a href="form_psicologo.php">Você Profissional não tem uma conta ainda? Então crie uma!</a></p>
+        
+           <p><a href="form_paciente.php">Sou usuario  |</a></p>
+		   <p><a href="form_psicologo.php">|  Sou Profissional</a></p>
             
         </div>
         <div class="alter">

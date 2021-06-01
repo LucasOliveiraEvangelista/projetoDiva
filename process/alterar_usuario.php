@@ -99,7 +99,7 @@
 			session_start();
 			if(isset($_SESSION["unique_id"])){
 				$query = "SELECT *
-				FROM cad_usuario WHERE unique_id = ". $_SESSION["unique_id"];
+				FROM cad_usuario WHERE unique_id = {$_SESSION['unique_id']}";
 				//echo $query;
 				$executar = mysqli_query($conn,$query);
 				$usuario = mysqli_fetch_array($executar);	
@@ -113,17 +113,21 @@
 		<div class="card_psicologo">
         <div class="coluna">
 
-		<form class = "formulario"  action="editar_usuario.php" method="POST" enctype="multipart/form-data">
-            <?php echo "<img src='../imagens/$usuario[foto]'>" ?>
-			<input type="file" name="arquivo">
+		<form class = "formulario"  action="foto_paci.php" method="POST" enctype="multipart/form-data">
+            <?php echo "<img src='../imagens/$usuario[foto]' value='$usuario[foto]' alt='user'>"; ?>
+			<label for="foto">escolher</label>
+			<input type="file" name="pic" accept="image/*" id = "foto" hidden value="<?php echo $usuario['foto']?>">
+			<p><input type="submit"></p>
+			</form>
         </div>
 
         <div class="coluna2">
             <div class="info">
-                <p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
-                <p>CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
-                <p>Nasceu em: <?php echo "<input type='date' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
-                <p>Sexo: <select name="sexo">
+				<form class = "formulario"  action="editar_usuario.php" method="POST" enctype="multipart/form-data">
+					<p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
+					<p>CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
+					<p>Nasceu em: <?php echo "<input type='text' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
+					<p>Sexo: <select name="sexo">
 											<?php 
 												if($usuario['sexo']=='f'){
 													$sexo = "
@@ -170,22 +174,28 @@
 								
 											?>
 										</select></p>
-                <p>Estado: <?php echo "<input type='text' name='estado' id='estado' value='$usuario[estado]'/>" ?></p>
-                <p>Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
-            </div>
+					<p>Estado: <?php echo "<input type='text' name='estado' id='estado' value='$usuario[estado]'/>" ?></p>
+					<p>Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
+			</div>
 
-			<li><a href="editar_usuario.php"><button>Editar</button></a></li>
-							</form>
+						<li><a href="editar_usuario.php"><button>Editar</button></a></li>
+						</form>
 
-			<form action="excluir_usuario.php" method="post" enctype="multipart/data-form">
+					<form action="excluir_usuario.php" method="post" enctype="multipart/form-data">
 						<li><a href="excluir_usuario.php"><button>Excluir</button></a></li>
 					</ul>
 				</div>
 				</form>
+				<form action="desativa_user.php" method="post" enctype="multipart/data-form">
+						<li><a href="desativa_user.php"><button>Desativar conta</button></a></li>
+					</ul>
+				</div>
+			</form>
         <script src="../js/navbar.js"></script>
 	<?php
 		}else{
 			echo "Acesso negado";
+			header("Location:../index.php");
 		} 
 	?>
 </body>

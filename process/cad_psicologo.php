@@ -80,8 +80,8 @@
             history.back();
         </script>";
         }else{
-        $inserir =  "INSERT INTO psicologos (nome, email, senha, nascimento, rg, cpf, cep, crp, status, unique_id, situacao, foto)
-        VALUES('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$crp', '$status', '$ran_id', 0, 'user.png')";
+        $inserir =  "INSERT INTO psicologos (nome, email, senha, nascimento, rg, cpf, cep, crp, status, unique_id, situacao, foto, desativada)
+        VALUES('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$crp', '$status', '$ran_id', 0, 'user.png', 0)";
         $query = mysqli_query($conn, $inserir);
         if($inserir){
             $select_sql2 = mysqli_query($conn, "SELECT * FROM psicologos WHERE email = '{$email}'");

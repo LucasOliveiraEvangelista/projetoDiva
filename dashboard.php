@@ -98,15 +98,15 @@
             <a href="marcadas.php"><button>VER</button></a>
         </div>
         <div class="card">
-            <p>Pedidos de Remarcação</p>
+            <p>Meus horarios disponiveis</p>
             <?php
                 
-                $consultas = mysqli_query($conn, "SELECT * FROM consulta WHERE id_psic = '$id' AND realizada = 2");
-                $remarca = mysqli_num_rows($consultas);
+                $horarios = mysqli_query($conn, "SELECT * FROM horarios WHERE id_psic = '$id' AND marcado = 0");
+                $meus = mysqli_num_rows($horarios);
 
-                echo "<span>$remarca</span>";
+                echo "<span>$meus</span>";
             ?>
-            <button>VER</button>
+            <a href="agenda.php"><button>VER</button></a>
         </div>
     </div>
     
