@@ -12,7 +12,7 @@
     margin-top: 80px;
     background: var(--cor-principal);
     width: 1120px;
-    height: 620px;
+    height: 730px;
     border-radius: 40px;
     display: flex;
     flex-direction: row;
@@ -29,8 +29,35 @@
     margin-top: 60px;
     margin-left: 60px;
     margin-right: 60px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
+}
+.card_psicologo .coluna label{
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background: transparent;
+    padding: 10px;
+    margin-top: 80px;
+    margin-left: 90px;
+    cursor: pointer;
+}
+.card_psicologo .coluna label:hover{
+    background: #ffffff;
+    color: #564a9e;
+}
+.card_psicologo .coluna input[type="submit"]{
+    width: 90px;
+    height: 48px;
+    background: var(--cor-principal);
+    color: #FFFFFF;
+    font-family: var(--fonte-texto);
+    font-size: 18px;
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+    margin-left: 114px;
+    margin-top: 20px;
 }
 .card_psicologo .coluna .chat{
     background: var(--cor-principal);
@@ -46,7 +73,9 @@
 .card_psicologo .coluna2{
     display: flex;
     flex-direction: column;
+    width: 630px;
 }
+
 .card_psicologo .coluna2 .nome{
     font-family: var(--fonte-titulo);
     color: var(--cor-titulo);
@@ -77,3 +106,37 @@
 .alter{
     cursor: pointer;
 }
+
+.card_psicologo input[type="text"], select,  textarea{
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--fonte-texto);
+    border: none;
+    border-bottom: 1px solid #8a7ed6;
+    padding: 4px;
+    font-size: 18px;
+}
+.card_psicologo .coluna3{
+    display: flex;
+    flex-direction: column;
+    
+}
+.card_psicologo .coluna3 a{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 4px;
+}
+.card_psicologo .coluna3 a button{
+    width: 90px;
+    height: 48px;
+    background: var(--cor-principal);
+    color: #FFFFFF;
+    font-family: var(--fonte-texto);
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+}
+.card_psicologo .coluna3 a button:hover{
+    background: #ffffff;
+    color: #564a9e;
+}
+

@@ -10,6 +10,8 @@
         $cep = $_POST['cep'];
         $tel = $_POST['telefone'];
 
+        
+
         if($nome == ""){
             echo "<script>
             alert('Ops! Campo nome vazio');
@@ -71,6 +73,8 @@
             history.back();
         </script>";
         }else{
+
+            
                 $ran_id = rand(time(), 100000000);
                 $status = "Online";
                 $senhacry = sha1($senha);

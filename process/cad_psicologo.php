@@ -69,17 +69,18 @@
             alert('Ops! Campo RG vazio');
             history.back();
         </script>";
-        }else if(empty($cpf)){
+        }else if(empty($crp)){
             echo "<script>
             alert('Ops! Campo CPF vazio');
             history.back();
         </script>";
-        }else if(empty($crp)){
+        }else if(empty($cpf)){
             echo "<script>
             alert('Ops! CRP vazio');
             history.back();
         </script>";
         }else{
+           
         $inserir =  "INSERT INTO psicologos (nome, email, senha, nascimento, rg, cpf, cep, crp, status, unique_id, situacao, foto, desativada)
         VALUES('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$crp', '$status', '$ran_id', 0, 'user.png', 0)";
         $query = mysqli_query($conn, $inserir);

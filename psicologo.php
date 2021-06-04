@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/psic.css">
     <link rel="stylesheet" href="css/slider.css">
-    <link rel="stylesheet" type = "text/css" href="css/age.css">
+    <link rel="stylesheet" href="css/age.css">
+    <link rel="stylesheet" href="css/modal.css">
    
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -45,7 +46,7 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="feed.php" class="nav__link ">
+                    <a href="lista_psicologos.php" class="nav__link ">
                     <i class="fas fa-th-large"></i>
                         <span class="nav__name">Feed</span>
                     </a>
@@ -73,6 +74,7 @@
 
         </nav>
     </div>
+        <script src="js/navbar.js"></script>
     <div class="conteudo">
         <div class="card_psicologo">
             <div class="coluna">
@@ -300,7 +302,8 @@
                     <div class="horas">
                         <?php
                             while ($calenda = mysqli_fetch_array($meus)){
-                                echo "<a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
+                                echo "
+                                <a href='process/criar_consulta.php?horario=$calenda[id_agendamento]'><button>$calenda[hora_inicio] - $calenda[hora_fim]</button></a>";
                                 }
                         ?>
                     </div>
@@ -312,7 +315,25 @@
 
     
 
-
+    <!-- <div class="center">
+        <input type="checkbox" name="" id="click">
+        <label for="click" class="click-me">Horario</label>
+        <div class="cont">
+            <div class="top">
+            <h2>Formulario</h2>
+                <label for="click" class="fas fa-times"></label>
+            </div>
+            <form action="" meyhod="">
+                <p>Tipo de pagamento:
+                <input type="radio" name="tipo" id="">Dinheiro
+                <input type="radio" name="tipo" id="">Pix
+                <input type="radio" name="tipo" id="">Cartão de crédito
+                </p>
+            </form>
+            <div class="line"></div>
+            <label for="click" class="close-btn">Fechar</label>
+        </div>
+    </div> -->
    
    
    

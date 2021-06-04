@@ -77,7 +77,7 @@
             echo "<div class='pacientes'>
             <div class='card'>
                 <div class='col1'>
-                <img src='imagens/user.png' alt='imagens'>
+                <img src='imagens/$consul[foto]' alt='imagens'>
                 </div>
                 <div class='col2'>
                 <p>$consul[nome]</p>

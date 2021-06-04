@@ -14,8 +14,8 @@
     $hr = "$foi[dia], $foi[hora_inicio] - $foi[hora_fim]";
 
     $id_psic = $ag['id_psic']; 
-    // $id_user = $_SESSION['unique_id'];
-    $id_user = "846225059";
+    $id_user = $_SESSION['unique_id'];
+    
 
     $tipo = "Dinheiro";
     // Dinheiro, pix, cartao, mercado pago, transferencia

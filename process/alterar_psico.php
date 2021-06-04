@@ -105,100 +105,152 @@
 				//print_r($usuario);
 				
 			?>
-	<?php
-	require_once '../navbar_user.php';
-	?>
-        
-		<div class="card_psicologo">
-        <div class="coluna">
-
-		<form class = "formulario"  action="foto_psic.php" method="POST" enctype="multipart/form-data">
-            <?php echo "<img src='../imagens/$usuario[foto]' value='$usuario[foto]' alt='user'>"; ?>
-			<label for="foto">escolher</label>
-			<input type="file" name="pic" accept="image/*" id = "foto" hidden value="<?php echo $usuario['foto']?>">
-			<p><input type="submit"></p>
-			</form>
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
         </div>
 
-        <div class="coluna2">
-            <div class="info">
-			<form class = "formulario"  action="editar_psic.php" method="POST" enctype="multipart/form-data">
-                <p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?></p>
-                <p>CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
-                <p>Nasceu em: <?php echo "<input type='text' name='data_nasc' value='$usuario[nascimento]'/>" ?></p>
-                <p>Sexo: <select name="sexo">
-											<?php 
-												if($usuario['sexo']=='f'){
-													$sexo = "
-																<option value='f'>Feminino
-																<option value='m'>Masculino</option>
-																<option value='o'>Outro</option>
-																<option value='n'>Não sei dizer</option>
-																<option value='r'>Prefiro não responder</option>
-															";
-												}else if($usuario['sexo']=='m'){
-													$sexo = "
-																<option value='m'>Masculino</option>
-																<option value='f'>Feminino
-																<option value='o'>Outro</option>
-																<option value='n'>Não sei dizer</option>
-																<option value='r'>Prefiro não responder</option>
-															";
-												}else if($usuario['sexo']=='o'){
-													$sexo = "
-																<option value='o'>Outro</option>
-																<option value='m'>Masculino</option>
-																<option value='f'>Feminino
-																<option value='n'>Não sei dizer</option>
-																<option value='r'>Prefiro não responder</option>
-															";
-												}else if($usuario['sexo']=='n'){
-													$sexo = "
-																<option value='n'>Não sei dizer</option>
-																<option value='o'>Outro</option>
-																<option value='m'>Masculino</option>
-																<option value='f'>Feminino
-																<option value='r'>Prefiro não responder</option>
-															";
-												}else{
-													$sexo = "
-																<option value='r'>Prefiro não responder</option>
-																<option value='o'>Outro</option>
-																<option value='m'>Masculino</option>
-																<option value='f'>Feminino
-																<option value='n'>Não sei dizer</option>
-															";
-												}
-												echo $sexo;
-								
-											?>
-										</select></p>
-                <p>Estado: <?php echo "<input type='text' name='estado' id='estado' value='$usuario[estado]'/>" ?></p>
-                <p>Local do consultório: <?php echo "<input type='text' name='local'  value='$usuario[local]'/>" ?></p>
-                <p>Idioma: <?php echo "<input type='text' name='idioma'  value='$usuario[idioma]'/>" ?></p>
-                <p>Valor: <?php echo "<input type='text' name='valor' value='$usuario[valor]'/>" ?></p>
-                <p>Duração da consulta: <?php echo "<input type='text' name='tempo' value='$usuario[tempo_consulta]'/>" ?></p>
-                <p>Ano que começou: <?php echo "<input type='text' name='ano' value='$usuario[tempo_experiencia]'/>" ?></p>
-                <p>Politica de remarcação: <?php echo "<input type='text' name='remarcacao' value='$usuario[remarcacao]'/>" ?></p>
-                <p>Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
-                <p>Descrição de carreira: <?php echo "<textarea name='texto'>$usuario[texto]</textarea>"?></p>
-                <p>Resumo: <?php echo "<textarea name='resumo'>$usuario[resumo]</textarea>"?></p>
+        <div class="header__img">
+            <img src="../assets/img/perfil.jpg" alt="">
+        </div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+            <div>
+                <a href="../index.php" class="nav__logo active">
+                    <img class = "logo" src="../assets/logo.png" alt="">
+                    <span class="nav__logo-name">Divã</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="../dashboard.php" class="nav__link ">
+                    <i class="fas fa-calendar-week"></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <a href="../consulta.php" class="nav__link">
+                    <i class="far fa-calendar-alt"></i>
+                        <span class="nav__name">Consulta</span>
+                    </a>
+                    <a href="../chat/users.php" class="nav__link">
+                    <i class="far fa-comment-alt"></i>
+                        <span class="nav__name">Chat</span>
+                    </a>
+
+                    <a href="../sobre.php" class="nav__link">
+                    <i class="fas fa-book"></i>
+                        <span class="nav__name">Sobre nós</span>
+                    </a>
+
+                    <a href="../perfil_psic.php" class="nav__link">
+                    <i class="far fa-user"></i>
+                        <span class="nav__name">Perfil</span>
+                    </a>
+                </div>
             </div>
 
-			<li><a href="editar_psic.php"><button>Editar</button></a></li>
-							</form>
-
-			<form action="excluir_psic.php" method="post" enctype="multipart/data-form">
-						<li><a href="excluir_psic.php"><button>Excluir</button></a></li>
-					</ul>
-				</div>
-			</form>
-			<form action="desativa_psic.php" method="post" enctype="multipart/data-form">
-						<li><a href="desativa_psic.php"><button>Desativar conta</button></a></li>
-					</ul>
-				</div>
-			</form>
+        </nav>
+    </div>
         <script src="../js/navbar.js"></script>
+        
+		<div class="card_psicologo">
+        	<div class="coluna">
+
+			<form class = "formulario"  action="foto_psic.php" method="POST" enctype="multipart/form-data">
+				<?php echo "<img src='../imagens/$usuario[foto]' value='$usuario[foto]' alt='user'>"; ?>
+				<label for="foto">Escolher nova foto</label>
+				<input type="file" name="pic" accept="image/*" id = "foto" hidden value="<?php echo $usuario['foto']?>">
+				<p><input type="submit"></p>
+			</form>
+        	</div>
+
+			<div class="coluna2">
+				<div class="info">
+					<form class = "formulario"  action="editar_psic.php" method="POST" enctype="multipart/form-data">
+					<p>Nome:<?php echo "<input type='text' name='nome' value='$usuario[nome]'/>";?>
+					CEP: <?php echo "<input name='cep' type='text' id='cep' maxlength='9' onkeyup='masc_cep()' value='$usuario[cep]' onblur='pesquisacep(this.value);'/>"?></p>
+					<p>Nasceu em: <?php echo "<input type='text' name='data_nasc' value='$usuario[nascimento]'/>" ?>
+					Sexo: <select name="sexo">
+												<?php 
+													if($usuario['sexo']=='f'){
+														$sexo = "
+																	<option value='f'>Feminino
+																	<option value='m'>Masculino</option>
+																	<option value='o'>Outro</option>
+																	<option value='n'>Não sei dizer</option>
+																	<option value='r'>Prefiro não responder</option>
+																";
+													}else if($usuario['sexo']=='m'){
+														$sexo = "
+																	<option value='m'>Masculino</option>
+																	<option value='f'>Feminino
+																	<option value='o'>Outro</option>
+																	<option value='n'>Não sei dizer</option>
+																	<option value='r'>Prefiro não responder</option>
+																";
+													}else if($usuario['sexo']=='o'){
+														$sexo = "
+																	<option value='o'>Outro</option>
+																	<option value='m'>Masculino</option>
+																	<option value='f'>Feminino
+																	<option value='n'>Não sei dizer</option>
+																	<option value='r'>Prefiro não responder</option>
+																";
+													}else if($usuario['sexo']=='n'){
+														$sexo = "
+																	<option value='n'>Não sei dizer</option>
+																	<option value='o'>Outro</option>
+																	<option value='m'>Masculino</option>
+																	<option value='f'>Feminino
+																	<option value='r'>Prefiro não responder</option>
+																";
+													}else{
+														$sexo = "
+																	<option value='r'>Prefiro não responder</option>
+																	<option value='o'>Outro</option>
+																	<option value='m'>Masculino</option>
+																	<option value='f'>Feminino
+																	<option value='n'>Não sei dizer</option>
+																";
+													}
+													echo $sexo;
+									
+												?>
+											</select></p>
+					<p>Estado: <?php echo "<input type='text' name='estado' id='estado' value='$usuario[estado]'/>" ?>
+					Consultório: <?php echo "<input type='text' name='local'  value='$usuario[local]'/>" ?></p>
+					<p>Idioma: <?php echo "<input type='text' name='idioma'  value='$usuario[idioma]'/>" ?>
+					Valor: <?php echo "<input type='text' name='valor' value='$usuario[valor]'/>" ?></p>
+					<p>Duração da consulta: <?php echo "<input type='text' name='tempo' value='$usuario[tempo_consulta]'/>" ?></p>
+					Ano que começou: <?php echo "<input type='text' name='ano' value='$usuario[tempo_experiencia]'/>" ?></p>
+					<p>Politica de remarcação: <?php echo "<input type='text' name='remarcacao' value='$usuario[remarcacao]'/>" ?></p>
+					Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
+					<p>Descrição de carreira: <?php echo "<textarea name='texto'>$usuario[texto]</textarea>"?></p>
+					<p>Resumo: <?php echo "<textarea name='resumo'>$usuario[resumo]</textarea>"?></p>
+												</div>
+			</div>
+		
+
+			
+        <script src="../js/navbar.js"></script>
+
+		<div class="coluna3">
+				<a href="editar_psic.php"><button>Editar</button></a>
+								</form>
+
+				<form action="excluir_psic.php" method="post" enctype="multipart/data-form">
+							<a href="excluir_psic.php"><button>Excluir</button></a>
+						
+					
+				</form>
+				<form action="desativa_psic.php" method="post" enctype="multipart/data-form">
+							<a href="desativa_psic.php"><button>Desativar conta</button></a>
+						
+					
+				</form>
+			</div>
 	<?php
 		}else{
 			echo "Acesso negado";

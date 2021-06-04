@@ -32,7 +32,7 @@
         </div>
 
         <div class="header__img">
-            <img src="assets/img/perfil.jpg" alt="">
+            <img src="../assets/img/perfil.jpg" alt="">
         </div>
     </header>
 
@@ -40,7 +40,7 @@
     <nav class="nav">
             <div>
                 <a href="../index.php" class="nav__logo active">
-                    <img class = "logo" src="assets/logo.png" alt="">
+                    <img class = "logo" src="../assets/logo.png" alt="">
                     <span class="nav__logo-name">Divã</span>
                 </a>
 
@@ -133,12 +133,6 @@
             
         </div>
         </div>
-        
-        
-
-        <!-- <a href="edit_especialidade.php"><button class="btn">mudar</button></a> -->
-
-       
 <?php
 }
 ?>
