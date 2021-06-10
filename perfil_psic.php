@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/psico.css">
+<link rel="stylesheet" href="css/not.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -75,6 +76,40 @@
 				//print_r($usuario);
 				
 	?>
+     <?php
+    $notificado = $_SESSION['unique_id'];
+    $notify = mysqli_query($conn, "SELECT * FROM notificacao WHERE id_para = '$notificado'");
+    $not = mysqli_num_rows($notify);
+     if($not){
+         if($not == 1){
+            echo "<div class='alert show'>
+            <span class='fas fa-exclamation-circle'></span>
+            <a href='notificacao_psic.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+        </span></a>
+            </div>";
+         }
+         else if($not > 1){
+            echo "<div class='alert show'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>Você tem $not Novas notificações</span>
+            <a href='notificacao_psic.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+            </span></a>
+            </div>";
+         }
+         else{
+            echo "<div class='alert hide'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>$not Nova notificação</span>
+            <a href='notificacao_psic.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+        </span></a>
+            </div>";
+         }
+    }
+
+?>
     <div class="card_psicologo">
         <div class="coluna">
             <?php echo "<img src='imagens/$usuario[foto]' alt='user'>";  ?>

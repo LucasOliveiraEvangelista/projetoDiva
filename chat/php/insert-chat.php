@@ -8,6 +8,7 @@
         if(!empty($message)){
             $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg)
                                         VALUES ({$incoming_id}, {$outgoing_id}, '{$message}')") or die();
+            $notif = mysqli_query($conn, "INSERT INTO notificacao (id_para, id_enviou, msg, status) VALUES ('$incoming_id', '$outgoing_id', 'Nova Mensagem', 'Não Visto')");
         }
     }else{
         header("location: ../../login.php");

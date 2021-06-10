@@ -25,6 +25,7 @@
     if($marcou){
         $query = mysqli_query($conn, "INSERT INTO consulta (horario, id_psic, id_user, realizada, pago, tipo_pagamento) VALUES ('$hr', '$id_psic', '$id_user', '0', 'Não', '$tipo')");
         if($query){
+            $notif = mysqli_query($conn, "INSERT INTO notificacao (id_para, id_enviou, msg, status) VALUES ('$id_psic', '$id_user', 'Nova Consulta', 'Não Visto')");
             echo "<script>
                         alert('Consulta marcada com sucesso!');
                         location.href='../psicologo.php';

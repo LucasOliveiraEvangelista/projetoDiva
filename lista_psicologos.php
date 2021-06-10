@@ -10,6 +10,8 @@
     <title>Psicologos</title>
 
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/not.css">
+
     <link rel="stylesheet" href="css/perfil.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -65,12 +67,50 @@
         </nav>
     </div>
 
+
     <div class="pesquisa">
         <form action="process/pesquisar_psic.php" method="post">
             <input type='text' name='pesquisar' placeholder='Pesquise aqui os psicólogos'/>
             <input type='submit' value='Pesquisar'/>
         </form>
     </div>
+
+    <?php
+    $notificado = $_SESSION['unique_id'];
+    $notify = mysqli_query($conn, "SELECT * FROM notificacao WHERE id_para = '$notificado' AND status = 'Não visto'");
+    $not = mysqli_num_rows($notify);
+     if($not){
+         if($not == 1){
+            echo "<div class='alert show'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>Você tem $not Nova notificação</span>
+            <a href='notificacao_user.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+        </span></a>
+            </div>";
+         }
+         else if($not > 1){
+            echo "<div class='alert show'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>Você tem $not Novas notificações</span>
+            <a href='notificacao_user.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt link'></span>
+        </span></a>
+            </div>";
+         }
+         else{
+            echo "<div class='alert hide'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>$not Nova notificação</span>
+            <span class='close-btn'>
+                <span class='fas fa-external-link-alt'></span>
+            </span>
+            </div>";
+         }
+
+    }
+
+?>
 
     <?php
         $query = "SELECT * FROM psicologos WHERE situacao = '1' ORDER BY nome ASC";

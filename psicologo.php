@@ -1,5 +1,6 @@
 <?php 
         require_once 'conexao.php';
+        session_start();
           $psic_id = mysqli_real_escape_string($conn, $_GET['psic']);
           $sql = mysqli_query($conn, "SELECT * FROM psicologos WHERE unique_id = {$psic_id}");
           if(mysqli_num_rows($sql) > 0){
@@ -21,6 +22,8 @@
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/age.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/not.css">
+
    
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -75,7 +78,44 @@
         </nav>
     </div>
         <script src="js/navbar.js"></script>
+        <?php
+    // $notificado = $_SESSION['unique_id'];
+    // $notify = mysqli_query($conn, "SELECT * FROM notificacao WHERE id_para = '$notificado' AND status = 'Não visto'");
+    // $not = mysqli_num_rows($notify);
+    //  if($not){
+    //      if($not == 1){
+    //         echo "<div class='alert show'>
+    //         <span class='fas fa-exclamation-circle'></span>
+    //         <span class='msg'>Você tem $not Nova notificação</span>
+    //         <a href='notificacao_user.php'><span class='close-btn'>
+    //         <span class='fas fa-external-link-alt'></span>
+    //     </span></a>
+    //         </div>";
+    //      }
+    //      else if($not > 1){
+    //         echo "<div class='alert show'>
+    //         <span class='fas fa-exclamation-circle'></span>
+    //         <span class='msg'>Você tem $not Novas notificações</span>
+    //         <a href='notificacao_user.php'><span class='close-btn'>
+    //         <span class='fas fa-external-link-alt link'></span>
+    //     </span></a>
+    //         </div>";
+    //      }
+    //      else{
+    //         echo "<div class='alert hide'>
+    //         <span class='fas fa-exclamation-circle'></span>
+    //         <span class='msg'>$not Nova notificação</span>
+    //         <span class='close-btn'>
+    //             <span class='fas fa-external-link-alt'></span>
+    //         </span>
+    //         </div>";
+    //      }
+
+    // }
+
+?>
     <div class="conteudo">
+    
         <div class="card_psicologo">
             <div class="coluna">
             <?php echo "<img src='imagens/$row[foto]' alt='user'>"?>

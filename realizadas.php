@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/marcada.css">
+    <link rel="stylesheet" href="css/not.css">
+
     
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -70,6 +72,41 @@
         </nav>
     </div>
     <script src="js/navbar.js"></script>
+    <?php
+    $notificado = $_SESSION['unique_id'];
+    $notify = mysqli_query($conn, "SELECT * FROM notificacao WHERE id_para = '$notificado'");
+    $not = mysqli_num_rows($notify);
+     if($not){
+        if($not == 1){
+            echo "<div class='alert show'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>Você tem $not Nova notificação</span>
+            <a href='notificacao_psic.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+        </span></a>
+            </div>";
+         }
+         else if($not > 1){
+            echo "<div class='alert show'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>Você tem $not Novas notificações</span>
+            <a href='notificacao_psic.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+            </span></a>
+            </div>";
+         }
+         else{
+            echo "<div class='alert hide'>
+            <span class='fas fa-exclamation-circle'></span>
+            <span class='msg'>$not Nova notificação</span>
+            <a href='notificacao_psic.php'><span class='close-btn'>
+            <span class='fas fa-external-link-alt'></span>
+        </span></a>
+            </div>";
+         }
+    }
+
+?>
     <?php
     $acha = mysqli_query($conn, "SELECT u.nome, u.foto, u.unique_id, c.id_user, c.id_consulta, c.horario, c.realizada, c.id_psic, c.pago, c.tipo_pagamento FROM cad_usuario AS u INNER JOIN consulta AS c ON u.unique_id = c.id_user  WHERE id_psic = '$id' AND realizada = 1");
         

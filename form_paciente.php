@@ -19,7 +19,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body id="body-pd">
+<body id="body-pd"  onload = " document.querySelector ('# cpf'). focus () " >
     <header class="header" id="header">
         <div class="header__toggle">
         <i class='bx bx-menu' id="header-toggle"></i>
@@ -85,10 +85,15 @@
             <p class="input"><input type="password" name="senha" placeholder="Senha">
             <input type="text" name="nascimento" placeholder="Data de nascimento"></p>
             <p class="input"><input type="text" name="rg" placeholder="RG">
-            <input type="text" name="cpf" placeholder="CPF"></p>
+            <input type="text" id= "cpf" name="cpf" placeholder="CPF"></p>
             <p class="input"><input type="text" name="cep" placeholder="CEP">
-            <input type="text" name="telefone" placeholder="Telefone"></p>
+            <input type="text" id = "tel"name="telefone" placeholder="Telefone"></p>
             <p ><input id="button" type="submit" value="Cadastrar"></p>
+
+            <script>
+                new FormMask(document.querySelector("#cpf"), "___.___.___-__", "_", [".", "-"])
+                new FormMask(document.querySelector("#tel"), "(__)_____-____", "_", ["(", ")", "-"])
+            </script>
         </form>
        </div>
     </main>
@@ -98,5 +103,6 @@
 
     <script src="js/navbar.js"></script>
     <script src="javascript/signup_paci.js"></script>
+    <script src="js/formMask_V2.js"></script>
 </body>
 </html>
