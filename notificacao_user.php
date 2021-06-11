@@ -26,7 +26,8 @@ if($query){
         </script>";
     }
 }
-$query2 = mysqli_query($conn, "SELECT u.nome, u.unique_id, n.msg, n.id_para, n.id, n.id_enviou, n.status FROM psicologos AS u INNER JOIN notificacao AS n ON u.unique_id = n.id_enviou WHERE id_para = '$id'");
+$query2 = mysqli_query($conn, "SELECT u.nome, u.unique_id, n.msg, n.id_para, n.id, n.id_enviou, n.status 
+FROM psicologos AS u INNER JOIN notificacao AS n ON u.unique_id = n.id_enviou WHERE id_para = '$id'");
 while($notif = mysqli_fetch_array($query2)){
     echo "<div>
     <p>$notif[nome]</p>

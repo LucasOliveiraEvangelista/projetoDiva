@@ -21,9 +21,12 @@
                     $desa = mysqli_query($conn, "SELECT * FROM cad_usuario WHERE email = '$email'");
                     $ta = mysqli_fetch_array($desa);
                     if($ta['desativada'] == 1){
-                        echo "<script>
-                        alert('Sua conta estava desativada, e esta sendo reativada novamente');
-                        </script>";
+                        $ativa = mysqli_query($conn, "UPDATE cad_usuario SET desativada = 0 WHERE unique_id = {$row['unique_id']}");
+                        if($ativa){
+                            echo "<script>
+                            alert('Sua conta estava desativada, e esta sendo reativada novamente');
+                            </script>";
+                            }
                     }
                     $sql2 = mysqli_query($conn, "UPDATE cad_usuario SET status = '{$status}' WHERE unique_id = {$row['unique_id']}");
                     if($sql2){
@@ -56,9 +59,12 @@
                 $desa = mysqli_query($conn, "SELECT * FROM psicologos WHERE email = '$email'");
                 $ta = mysqli_fetch_array($desa);
                 if($ta['desativada'] == 1){
+                    $ativa = mysqli_query($conn, "UPDATE psicologos SET desativada = 0 WHERE unique_id = {$row['unique_id']}");
+                    if($ativa){
                     echo "<script>
                     alert('Sua conta estava desativada, e esta sendo reativada novamente');
                     </script>";
+                    }
                 }
                 $sql4 = mysqli_query($conn, "UPDATE psicologos SET status = '{$status}', desativada = 0 WHERE unique_id = {$row['unique_id']}");
                 if($sql3){

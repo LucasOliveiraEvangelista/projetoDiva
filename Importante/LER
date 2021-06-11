@@ -6,18 +6,19 @@ psiquiatra@gmail.com    12345           psicologos
 
 
 fazer responsividade
-fazer enviar email avisando quem marcou a consulta e quando vai ser a consulta e o meio de pagamento
-enviar email para o usuario caso o psicologo cancele a consulta
 os meios de pagamento
 e verificação dos horários
-arrumar a session do agenda.php e todas as outras
+arrumar a session de todas
 
 
-ajustar o editar psicologo(css)
-validações do cadastro js
-fazer tooltip com css para as páginas
-meios de pagamento modal
-criar botao de conf pagamento
+
+ajustar o editar user(css)
+validações do cadastro rg, telefone e cep
+ajustar as notificações
+filtros de pesquisa
+
+arrumar a página de notificação (php, css)
+dashboard do user
 
 
 

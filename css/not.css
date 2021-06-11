@@ -9,7 +9,7 @@
     --fonte-texto: 'Oswald', sans-serif;
 }
 .alert{
-    background: var(--cor-secundaria);
+    background: #FFFFFF;
     padding: 20px 40px;
     min-width: 420px;
     position: absolute;
@@ -17,7 +17,7 @@
     top: -40px;
     overflow: hidden;
     border-radius: 4px;
-    border-left: 8px solid var(--cor-principal);
+    border-left: 8px solid var(--cor-secundaria);
 }
 .alert.show{
     animation: show_slide 1.3s ease forwards;
