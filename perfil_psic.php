@@ -43,7 +43,7 @@
                     <i class="far fa-calendar-alt"></i>
                         <span class="nav__name">Consulta</span>
                     </a>
-                    <a href="chat/users.php" class="nav__link">
+                    <a href="chat_psic/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>

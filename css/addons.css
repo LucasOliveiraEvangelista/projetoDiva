@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&family=Oswald&display=swap');
+
+:root {
+    --cor-principal: #564a9e;
+    --cor-secundaria: #AFA5D9;
+    --cor-texto: #d9d9d9;
+    --cor-titulo: #FFFFFF;
+    --fonte-titulo: 'Antonio', sans-serif;
+    --fonte-texto: 'Oswald', sans-serif;
+  }
+.addons{
+    margin-left: 120px;
+}
+.boxes{
+    justify-content: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.boxes .caixa{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    background: #f2efff;
+    box-shadow: 0px 30px 50px #33333339;
+    overflow: hidden;
+    border: none;
+}
+.boxes .caixa .imgbx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+.boxes .caixa .imgbx i{
+    font-size: 100px;
+    color: #564A9E;
+    margin-left: 99px;
+    margin-top: 100px;
+}
+.boxes .caixa:hover .imgbx{
+    transform: scale(0) translateY(-100%);
+}
+.boxes .caixa .descri {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+    background: #564a9e;
+    text-align: center;
+    transform: scale(1) translateY(calc(100% - 5px));
+}
+.boxes .caixa:hover .descri{
+    transform: scale(1);
+}
+.boxes .caixa .descri h3{
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Antonio', sans-serif;
+}
+.boxes .caixa .descri h4{
+    color: #ffffffbb;
+    font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+}

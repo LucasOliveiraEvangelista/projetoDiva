@@ -7,6 +7,8 @@
     <title>Home</title>
 
     <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/addons.css">
+    <link rel="stylesheet" href="css/footer.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -103,8 +105,85 @@
 
         <div class="wave_baixo"><img src="assets/wavedown.svg" alt=""></div>
 
-        <div class="sobre"></div>
-        <div class="footer"></div>
+    
+        <div class="addons">
+        <div class="texto-terceiro">
+            <h1 class="titula">Veja mais sobre o Divã</h1>
+        </div>
+        <div class="boxes">
+            <div class="caixa">
+                <div class="imgbx">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <div class="descri">
+                    <h3>Confiabilidade</h3>
+                    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut rem, pariatur vel non magni vero laudantium optio nam laborum.</h4>
+                </div>
+            </div>
+            <div class="caixa">
+                <div class="imgbx">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="descri">
+                    <h3>Objetivo</h3>
+                    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut rem, pariatur vel non magni vero laudantium optio nam laborum.</h4>
+                </div>
+            </div>
+            <div class="caixa">
+                <div class="imgbx">
+                    <i class="fas fa-question"></i>
+                </div>
+                <div class="descri">
+                    <h3>o que é o Divã</h3>
+                    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut rem, pariatur vel non magni vero laudantium optio nam laborum.</h4>
+                </div>
+            </div>
+           
+             
+        </div>
+        </div>
+
+        <footer class = "footer">
+        <div class="contain">
+            <div class="linha">
+                <div class="footer-col">
+                    <h4>Divã</h4>
+                    <ul>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Nossos serviços</a></li>
+                        <li><a href="#">Termos de uso</a></li>
+                        <li><a href="#">Planos</a></li>
+                        <li><a href="#">Política de privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ajuda</h4>
+                    <ul>
+                        <li><a href="#">Como me cadastrar ?</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Como é realizada as consultas?</a></li>
+                        <li><a href="#">Opções de pagamento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Profissional</h4>
+                    <ul>
+                        <li><a href="#">Como me cadastrar?</a></li>
+                        <li><a href="#">O Divã para profissionais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Siga nas redes sociais</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
             
 
     </div>

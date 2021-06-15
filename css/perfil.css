@@ -8,8 +8,19 @@
     --fonte-texto: 'Oswald', sans-serif;
   }
 .pesquisa input[type="text"]{
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
+    border: 1px solid #000000;
+    height: 40px;
+    color: #333333;
+    font-family: var(--fonte-titulo);
+    font-size: 18px;
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.pesquisa select{
+    width: 25%;
     border: 1px solid #000000;
     height: 40px;
     color: #333333;

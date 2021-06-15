@@ -63,7 +63,8 @@
 			require_once '../conexao.php';
 	
 			$pesquisar = $_POST['pesquisar'];
-			$executar = "SELECT * FROM psicologos WHERE nome OR crp LIKE '%$pesquisar%' LIMIT 5";
+            $esp = $_POST['espe'];
+			$executar = "SELECT * FROM psicologos WHERE nome OR crp LIKE '%$pesquisar%'";
 			$resultados = mysqli_query($conn, $executar);
         ?>
 

@@ -16,14 +16,12 @@
     $id_psic = $ag['id_psic']; 
     $id_user = $_SESSION['unique_id'];
     
-
-    $tipo = "Dinheiro";
     // Dinheiro, pix, cartao, mercado pago, transferencia
 
     
     $marcou = mysqli_query($conn, "UPDATE horarios SET marcado = 1 WHERE id_agendamento = '$consulta'");
     if($marcou){
-        $query = mysqli_query($conn, "INSERT INTO consulta (horario, id_psic, id_user, realizada, pago, tipo_pagamento) VALUES ('$hr', '$id_psic', '$id_user', '0', 'Não', '$tipo')");
+        $query = mysqli_query($conn, "INSERT INTO consulta (horario, id_psic, id_user, realizada, pago) VALUES ('$hr', '$id_psic', '$id_user', '0', '0')");
         if($query){
             $notif = mysqli_query($conn, "INSERT INTO notificacao (id_para, id_enviou, msg, status) VALUES ('$id_psic', '$id_user', 'Nova Consulta', 'Não Visto')");
             echo "<script>
