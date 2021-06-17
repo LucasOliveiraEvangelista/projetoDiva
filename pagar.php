@@ -43,28 +43,32 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="lista_psicologos.php" class="nav__link ">
+                    <a href="dash_user.php" class="nav__link ">
                     <i class="fas fa-th-large"></i>
-                        <span class="nav__name">Feed</span>
+                        <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="dash_user.php" class="nav__link">
-                    <i class="far fa-calendar-alt"></i>
-                        <span class="nav__name">Consulta</span>
+                    <a href="lista_psicologos.php" class="nav__link">
+                    <i class="fas fa-list-ul"></i>
+                        <span class="nav__name">Feed</span>
                     </a>
-                    <a href="chat/users.php" class="nav__link">
+                    <a href="chat_psic/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
-                        <span class="nav__name">Sobre nós</span>
+                    <a href="notificacao_user.php" class="nav__link">
+                    <i class="far fa-bell"></i>
+                        <span class="nav__name">Notificações</span>
                     </a>
 
                     <a href="perfil_user.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -125,7 +129,8 @@
                 <div class='col3'>
                 <a href='chat_psic/chat.php?user_id=$consul[id_user]'><button class='chat'>Chat</button></a>
                 <form action='pagamento.php' method='POST'>
-                    <input type='hidden' name='realizada' value='$consul[id_consulta]'>
+                    <input type='hidden' name='pagar' value='$consul[id_consulta]'>
+                    <input type='hidden' name='id' value='$consul[id_psic]'>
                     <input type='submit' class='realizada' value='Pagar'>
                 </form>
                 <form action='process/deletar_consulta.php' method='POST'>

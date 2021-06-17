@@ -7,6 +7,7 @@
 		<title>Perfil</title>
 		<link rel="stylesheet" href="../css/navbar.css">
 		<link rel="stylesheet" href="../css/user.css">
+		<link rel="stylesheet" href="../css/psico.css">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -24,7 +25,6 @@
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 				<script>
-			
 			function limpa_formulário_cep() {
 					//Limpa valores do formulário de cep.
 					document.getElementById('rua').value=("");
@@ -125,29 +125,33 @@
                     <span class="nav__logo-name">Divã</span>
                 </a>
 
-                <div class="nav__list">
-                    <a href="../lista_psicologos.php" class="nav__link ">
+				<div class="nav__list">
+                    <a href="../dash_user.php" class="nav__link ">
                     <i class="fas fa-th-large"></i>
-                        <span class="nav__name">Feed</span>
+                        <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="../consulta.php" class="nav__link">
-                    <i class="far fa-calendar-alt"></i>
-                        <span class="nav__name">Consulta</span>
+                    <a href="../lista_psicologos.php" class="nav__link">
+                    <i class="fas fa-list-ul"></i>
+                        <span class="nav__name">Feed</span>
                     </a>
-                    <a href="../chat/users.php" class="nav__link">
+                    <a href="../chat_psic/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="../sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
-                        <span class="nav__name">Sobre nós</span>
+                    <a href="../notificacao_user.php" class="nav__link">
+                    <i class="far fa-bell"></i>
+                        <span class="nav__name">Notificações</span>
                     </a>
 
                     <a href="../perfil_user.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="../encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -161,7 +165,7 @@
 
 		<form class = "formulario"  action="foto_paci.php" method="POST" enctype="multipart/form-data">
             <?php echo "<img src='../imagens/$usuario[foto]' value='$usuario[foto]' alt='user'>"; ?>
-			<label for="foto">escolher</label>
+			<label for="foto">Escolher nova foto</label>
 			<input type="file" name="pic" accept="image/*" id = "foto" hidden value="<?php echo $usuario['foto']?>">
 			<p><input type="submit"></p>
 			</form>
@@ -223,20 +227,21 @@
 					<p>Estado: <?php echo "<input type='text' name='estado' id='estado' value='$usuario[estado]'/>" ?></p>
 					<p>Telefone: <?php echo "<input type='text' name='telefone' id='telefone' onkeyup='masc_telefone()' maxlength='19' value='$usuario[telefone]'/>"?></p>
 			</div>
+			<div class="coluna3">
+				<a href="editar_usuario.php"><button>Editar</button></a>
+								</form>
 
-						<li><a href="editar_usuario.php"><button>Editar</button></a></li>
-						</form>
-
-					<form action="excluir_usuario.php" method="post" enctype="multipart/form-data">
-						<li><a href="excluir_usuario.php"><button>Excluir</button></a></li>
-					</ul>
-				</div>
+				<form action="excluir_usuario.php" method="post" enctype="multipart/data-form">
+							<a href="excluir_psic.php"><button>Excluir</button></a>
+						
+					
 				</form>
 				<form action="desativa_user.php" method="post" enctype="multipart/data-form">
-						<li><a href="desativa_user.php"><button>Desativar conta</button></a></li>
-					</ul>
-				</div>
-			</form>
+							<a href="desativa_psic.php"><button>Desativar conta</button></a>
+						
+					
+				</form>
+			</div>
         
 	<?php
 		}else{

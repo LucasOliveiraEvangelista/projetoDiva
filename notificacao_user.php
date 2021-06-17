@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/list_not.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -30,28 +31,32 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="dashboard.php" class="nav__link ">
-                    <i class="fas fa-calendar-week"></i>
+                    <a href="dash_user.php" class="nav__link ">
+                    <i class="fas fa-th-large"></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="consulta.php" class="nav__link">
-                    <i class="far fa-calendar-alt"></i>
-                        <span class="nav__name">Consulta</span>
+                    <a href="lista_psicologos.php" class="nav__link">
+                    <i class="fas fa-list-ul"></i>
+                        <span class="nav__name">Feed</span>
                     </a>
                     <a href="chat_psic/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
-                        <span class="nav__name">Sobre nós</span>
+                    <a href="notificacao_user.php" class="nav__link">
+                    <i class="far fa-bell"></i>
+                        <span class="nav__name">Notificações</span>
                     </a>
 
-                    <a href="perfil_psic.php" class="nav__link">
+                    <a href="perfil_user.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -78,10 +83,11 @@ if($query){
         </script>";
     }
 }
+echo '<p>Mensagens</p>';
 $query2 = mysqli_query($conn, "SELECT u.nome, u.unique_id, n.msg, n.id_para, n.id, n.id_enviou, n.status 
 FROM psicologos AS u INNER JOIN notificacao AS n ON u.unique_id = n.id_enviou WHERE id_para = '$id'");
 while($notif = mysqli_fetch_array($query2)){
-    echo "<div>
+    echo "<div class='item'>
     <p>$notif[nome]</p>
     <p>$notif[msg]</p>
     <p>$notif[status]</p>

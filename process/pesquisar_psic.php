@@ -30,28 +30,32 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="../lista_psicologos.php" class="nav__link ">
+                    <a href="../dash_user.php" class="nav__link ">
                     <i class="fas fa-th-large"></i>
-                        <span class="nav__name">Feed</span>
+                        <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="../consulta.php" class="nav__link">
-                    <i class="far fa-calendar-alt"></i>
-                        <span class="nav__name">Consulta</span>
+                    <a href="../lista_psicologos.php" class="nav__link">
+                    <i class="fas fa-list-ul"></i>
+                        <span class="nav__name">Feed</span>
                     </a>
-                    <a href="../chat/users.php" class="nav__link">
+                    <a href="../chat_psic/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="../sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
-                        <span class="nav__name">Sobre nós</span>
+                    <a href="../notificacao_user.php" class="nav__link">
+                    <i class="far fa-bell"></i>
+                        <span class="nav__name">Notificações</span>
                     </a>
 
                     <a href="../perfil_user.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="../encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -63,8 +67,7 @@
 			require_once '../conexao.php';
 	
 			$pesquisar = $_POST['pesquisar'];
-            $esp = $_POST['espe'];
-			$executar = "SELECT * FROM psicologos WHERE nome OR crp LIKE '%$pesquisar%'";
+			$executar = "SELECT * FROM psicologos WHERE nome LIKE '%$pesquisar%' OR crp LIKE '%$pesquisar%'";
 			$resultados = mysqli_query($conn, $executar);
         ?>
 

@@ -12,7 +12,7 @@
     margin-top: 80px;
     background: var(--cor-principal);
     width: 1120px;
-    height: 730px;
+    height: 800px;
     border-radius: 40px;
     display: flex;
     flex-direction: row;
@@ -108,7 +108,7 @@
 }
 
 .card_psicologo input[type="text"], select,  textarea{
-    background-color: transparent;
+    background-color: var(--cor-principal);
     color: #FFFFFF;
     font-family: var(--fonte-texto);
     border: none;

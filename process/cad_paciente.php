@@ -116,7 +116,7 @@
                 $_SESSION['nome'] = $nome;
                 
                 $query= "INSERT INTO cad_usuario (nome, email, senha, nascimento, rg, cpf, cep, status, unique_id, foto, telefone) 
-                VALUES ('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$status', '$ran_id', 'user.png', '$tels')";
+                VALUES ('$nome', '$email', '$senhacry', '$nasc', '$rg', '$cpf', '$cep', '$status', '$ran_id', 'user.png', '$tel')";
                 $inserir = mysqli_query($conn, $query);
                 if($inserir){
                         $select_sql2 = mysqli_query($conn, "SELECT * FROM cad_usuario WHERE email = '{$email}'");

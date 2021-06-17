@@ -7,8 +7,12 @@
     --fonte-titulo: 'Antonio', sans-serif;
     --fonte-texto: 'Oswald', sans-serif;
   }
+.pesquisa{
+    display: flex;
+    width: 98%;
+}
 .pesquisa input[type="text"]{
-    width: 40%;
+    width: 400px;
     margin: 0 auto;
     border: 1px solid #000000;
     height: 40px;
@@ -20,7 +24,7 @@
     border-bottom-left-radius: 10px;
 }
 .pesquisa select{
-    width: 25%;
+    width: 75%;
     border: 1px solid #000000;
     height: 40px;
     color: #333333;
@@ -29,6 +33,7 @@
     padding-left: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    background-color: #FFFFFF;
 }
 .pesquisa input[type="submit"]{
     background-color: var(--cor-principal);

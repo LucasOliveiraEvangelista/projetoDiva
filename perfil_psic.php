@@ -39,23 +39,27 @@
                         <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="consulta.php" class="nav__link">
+                    <a href="agenda.php" class="nav__link">
                     <i class="far fa-calendar-alt"></i>
                         <span class="nav__name">Consulta</span>
                     </a>
-                    <a href="chat_psic/users.php" class="nav__link">
+                    <a href="chat/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
+                    <a href="notificacao_psic.php" class="nav__link">
+                    <i class="far fa-bell"></i>
                         <span class="nav__name">Sobre nós</span>
                     </a>
 
                     <a href="perfil_psic.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -144,6 +148,7 @@
             <div class="btn">
                 <a href="process/alterar_psico.php"><button class="alter">Alterar Informações</button></a>
                 <a href="process/alterar_especialidades.php"><button class="alter">Alterar Especialidades</button></a>
+                <a href="process/alterar_pix.php"><button class="alter">Alterar Configurações do Pix</button></a>
             </div>
         </div>
     </div>

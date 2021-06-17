@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 14/06/2021 às 16:35
+-- Tempo de geração: 17/06/2021 às 17:29
 -- Versão do servidor: 5.6.50
 -- Versão do PHP: 7.0.33-0+deb9u10
 
@@ -52,7 +52,7 @@ INSERT INTO `cad_usuario` (`unique_id`, `nome`, `nascimento`, `sexo`, `email`, `
 ('1234', 'Luan Guilherme', '09/09/2000', NULL, 'Luan7@luan.com', '8cb2237d0679ca88db6464eac60da96345513964', '123.214.980-90', '', '08122-080', NULL, 'user.png', '34.781.990-2', 'Online', 1),
 ('1408673948', 'Neymar Junior', '05/02/1992', NULL, 'ney@gmail.com', '5e9795e3f3ab55e7790a6283507c085db0d764fc', '374.058.006-56', NULL, '08122-000', NULL, NULL, '30.751.124-7', 'Online', 0),
 ('143676301', 'halland', '16/02/1999', NULL, 'haland@gmail.com', '5e9795e3f3ab55e7790a6283507c085db0d764fc', '999.058.606-58', NULL, '08122-080', NULL, NULL, '52.328.893-9', 'Online', 0),
-('1460747688', 'Thiago', '09/09/1993', NULL, 'thiago@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '305.938.510-64', '', '08122-080', NULL, 'user.png', '34.900.788-09', 'Online', 1),
+('1460747688', 'Thiago Ribeiro Mello', '09/09/1993', 'm', 'thiago@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '305.938.510-64', '(+55) 906512-321', '08122-080', 'ES', '162394182860cb62c44193cjpeg', '34.900.788-09', 'Online', 0),
 ('267154862', 'keven soares', '22/04/2003', NULL, 'keven@gmail.com', '5e9795e3f3ab55e7790a6283507c085db0d764fc', '578.923.975-58', NULL, '08121-321', NULL, NULL, '58.328.203-9', 'Online', 0),
 ('308104992', 'Gustavo Rios', '07/12/1995', NULL, 'grios@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '128.695.490-83', '', '08122-080', NULL, 'user.png', '12.345.765-9', 'Online', 1),
 ('351010038', 'Lucas de Oliveira', '16/08/2003', NULL, 'lucasoe007@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '12345678999', '', '08122-080', NULL, 'user.png', '38.731.090-1', 'Online', 1),
@@ -87,7 +87,8 @@ INSERT INTO `consulta` (`id_consulta`, `horario`, `id_psic`, `id_user`, `realiza
 (6, 'Quinta-Feira, 10:00 - 10:30', 123456, 846225059, 0, 'Dinheiro', 0),
 (9, 'Segunda-Feira, 19:00 - 20:00', 1341553486, 1043688555, 1, 'Dinheiro', 1),
 (10, 'Segunda-Feira, 7:00 - 8:00', 694628662, 351010038, 0, 'Dinheiro', 0),
-(11, 'Segunda-Feira, 20:00 - 21:00', 1341553486, 1460747688, 0, 'Dinheiro', 0);
+(11, 'Segunda-Feira, 20:00 - 21:00', 1341553486, 1460747688, 0, 'Pix', 0),
+(12, 'Segunda-Feira, 12:00 - 13:00', 1341553486, 1460747688, 0, 'pix', 0);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ INSERT INTO `especialidade` (`id_especialidade`, `nome`, `descricao`) VALUES
 (38, 'Raiva', NULL),
 (39, 'Relacionamentos amorosos', NULL),
 (40, 'Conflitos Familiares', NULL),
-(41, 'PConflitos Profissionais', NULL),
+(41, 'Conflitos Profissionais', NULL),
 (42, 'Sono', NULL),
 (43, 'Sindrome do Pânico', NULL),
 (44, 'Terapia de Casal', NULL),
@@ -208,7 +209,11 @@ INSERT INTO `esp_psico` (`id`, `nome`, `id_psic`) VALUES
 (20, 'Autismo', 694628662),
 (21, 'Bullying', 694628662),
 (22, 'Autoconhecimento', 694628662),
-(23, 'Estresse', 694628662);
+(23, 'Estresse', 694628662),
+(25, 'Assédio Moral', 1341553486),
+(26, 'Bullying', 1341553486),
+(27, 'Câncer', 1341553486),
+(28, 'Medo e Fobias', 1341553486);
 
 -- --------------------------------------------------------
 
@@ -252,7 +257,7 @@ INSERT INTO `horarios` (`id_agendamento`, `dia`, `hora_inicio`, `hora_fim`, `id_
 (21, 'Domingo', '11:30', '12:00', '123456', 0),
 (22, 'Segunda-Feira', '10:30', '11:30', '123456', 0),
 (23, 'Segunda-Feira', '14:00', '15:00', '123456', 0),
-(24, 'Segunda-Feira', '12:00', '13:00', '1341553486', 0),
+(24, 'Segunda-Feira', '12:00', '13:00', '1341553486', 1),
 (25, 'Segunda-Feira', '13:00', '14:00', '1341553486', 1),
 (26, 'Segunda-Feira', '15:00', '16:00', '1341553486', 1),
 (27, 'Domingo', '16:00', '17:00', '1341553486', 0),
@@ -438,24 +443,27 @@ CREATE TABLE `notificacao` (
 --
 
 INSERT INTO `notificacao` (`id`, `id_para`, `id_enviou`, `msg`, `status`) VALUES
-(3, '123456', '351010038', 'Nova Consulta', 'Não visto'),
+(3, '123456', '351010038', 'Nova  Consulta', 'Não visto'),
 (5, '1234', '123456', 'Nova mensagem', 'Não visto'),
-(6, '1234', '123456', 'Nova mensagem', 'Visto'),
+(6, '1234', '123456', 'Nova mensagem', 'Já Visto'),
 (9, '694628662', '351010038', 'Nova Mensagem', 'Não Visto'),
-(10, '1341553486', '1460747688', 'Nova Consulta', 'Não Visto'),
-(11, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
-(12, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
-(13, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
-(14, '1460747688', '1341553486', 'Nova Mensagem', 'Não Visto'),
-(15, '1460747688', '1341553486', 'Nova Mensagem', 'Não Visto'),
+(10, '1341553486', '1460747688', 'Nova Consulta', 'Já Visto'),
+(11, '1341553486', '1460747688', 'Nova Mensagem', 'Já Visto'),
+(12, '1341553486', '1460747688', 'Nova Consulta', 'Não Visto'),
+(13, '1341553486', '1460747688', 'Nova Mensagem', 'Já Visto'),
+(14, '1460747688', '1341553486', 'Nova Mensagem', 'Já Visto'),
+(15, '1460747688', '1341553486', 'Nova Mensagem', 'Já Visto'),
 (16, '1460747688', '1341553486', 'Nova Mensagem', 'Não Visto'),
-(17, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
+(17, '1341553486', '1460747688', 'Nova Mensagem', 'Já Visto'),
 (18, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
 (19, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
 (20, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
 (21, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
 (22, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
-(23, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto');
+(23, '1341553486', '1460747688', 'Nova Mensagem', 'Não Visto'),
+(24, '1341553486', '1460747688', 'Nova Consulta', 'Não Visto'),
+(26, '1341553486', '1460747688', 'Pagou consulta', 'Não Visto'),
+(27, '1341553486', '1460747688', 'Pagou consulta', 'Já Visto');
 
 -- --------------------------------------------------------
 
@@ -489,6 +497,8 @@ CREATE TABLE `psicologos` (
   `valor` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remarcacao` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sexo` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `chave` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `qrcode` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `desativada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -496,11 +506,11 @@ CREATE TABLE `psicologos` (
 -- Fazendo dump de dados para tabela `psicologos`
 --
 
-INSERT INTO `psicologos` (`unique_id`, `nome`, `email`, `senha`, `nascimento`, `estado`, `cep`, `rg`, `cpf`, `telefone`, `local`, `crp`, `status`, `situacao`, `tempo_experiencia`, `tempo_consulta`, `resumo`, `texto`, `diploma`, `faculdade`, `foto`, `idioma`, `valor`, `remarcacao`, `sexo`, `desativada`) VALUES
-('123456', 'João Lima', 'psiquiatra@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '13/02/1989', 'SP', '08122-080', NULL, NULL, '968813442', 'Rua dos magos, n° 66, Jd. do Carmo', '09-01234', NULL, 1, '2013', '40min', 'O texto curto para mostrar ao usuarios, llllllllllll llllllllllllllllllllllll lll llllllll', 'kkkkkkkkkkkkkkk k kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkk kkkkkk  kkkkkkkkkkkk kkkkkkk kkkkkkkkkk', NULL, NULL, ' 162216871860b0548e96337.jpeg', 'Português e Inglês', '80,00', '12', 'm', 1),
-('1341553486', 'Joana Doria Silva', 'drjoana@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '12/09/1996', 'SP', '08122-080', '38.721.720-70', '374.868.988-65', '96881-3442', 'Rua Alvaro alvorada, n° 777, Itaqua', '09-88123', 'Online', 1, '2018', '40min', 'Amo cuidar de pessoas, psicologia é minha paixão. mo cuidar de pessoasmo cuidar de pessoasmo cuidar de pessoasmo cuidar de pessoas.', 'mo cuidar de pessoas, psicologia é minha paixão.  mo cuidar de pessoas, psicologia é minha paixão. ', NULL, NULL, 'user.png', 'Inglês, Português', '80', '24', 'f', 1),
-('260532961', 'Marcos Paulo', 'marcao@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '07/09/1988', 'SP', '08122-080', '32.909.765-9', '305.938.510-64', '(11) 968813442', 'Rua dos lagos, n° 37, jd Oliva', '05-00891', 'Online', 1, '2007', '50min', 'Olá, bem vindo a este espaço. Sou psicólogo clínico e tenho experiência em Terapia Humanista - Abordagem Centrada na Pessoa(ACP).\r\nConsidero que todas as pessoas possam ser compreendidas e acolhidas, independente da experiência que estejam vivenciando.\r\nA ACP é uma abordagem que considera único cada indivíduo e entende que é possível ajudar o outro através de um processo de autoconhecimento e de escuta acolhedora e empática.\r\nSeja bem vindo a este espaço de acolhimento.', 'Na minha formação em Psicologia pela Universidade Federal de Minas Gerais tive oportunidade de trabalhar com diversas áreas da Psicologia (social, desenvolvimento, clínica, etc). Em paralelo busquei experiências no mercado e construí uma carreira voltada para o Recursos Humanos, principalmente para o mercado de Startups.\r\nHoje busco dividir meu tempo em um balanço entre clínica e Recursos Humanos, pois percebo que tais experiências são muito complementares e podem proporcionar maior compreensão das experiências vividas', NULL, NULL, 'user.png', 'Português', '80,00', '12', 'm', 1),
-('694628662', 'Thiago', 'thiago@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '12/08/1984', 'SP', '08122-080', '32.899..423-9', '305.938.510-64', '(11) 96881-3442', 'Rua Lagos azul, N° 43', '08-01234', 'Online', 1, '2011', '50min', 'ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo', 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', NULL, NULL, '162328159960c14fbf48805jpeg', 'Inglês', '90,00', '6', 'm', 0);
+INSERT INTO `psicologos` (`unique_id`, `nome`, `email`, `senha`, `nascimento`, `estado`, `cep`, `rg`, `cpf`, `telefone`, `local`, `crp`, `status`, `situacao`, `tempo_experiencia`, `tempo_consulta`, `resumo`, `texto`, `diploma`, `faculdade`, `foto`, `idioma`, `valor`, `remarcacao`, `sexo`, `chave`, `qrcode`, `desativada`) VALUES
+('123456', 'João Lima', 'psiquiatra@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '13/02/1989', 'SP', '08122-080', NULL, NULL, '968813442', 'Rua dos magos, n° 66, Jd. do Carmo', '09-01234', NULL, 1, '2013', '40min', 'O texto curto para mostrar ao usuarios, llllllllllll llllllllllllllllllllllll lll llllllll', 'kkkkkkkkkkkkkkk k kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkk kkkkkk  kkkkkkkkkkkk kkkkkkk kkkkkkkkkk', NULL, NULL, ' 162216871860b0548e96337.jpeg', 'Português e Inglês', '80,00', '12', 'm', '99900987', 'qrcode.png', 1),
+('1341553486', 'Joana Doria Silva', 'drjoana@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '12/09/1996', 'SP', '08122-080', '38.721.720-70', '374.868.988-65', '96881-3442', 'Rua Alvaro alvorada, n° 777, Itaqua', '09-88123', 'Online', 1, '2018', '40min', 'Amo cuidar de pessoas, psicologia é minha paixão. mo cuidar de pessoasmo cuidar de pessoasmo cuidar de pessoasmo cuidar de pessoas.', 'mo cuidar de pessoas, psicologia é minha paixão.  mo cuidar de pessoas, psicologia é minha paixão. ', NULL, NULL, 'user.png', 'Inglês, Português', '80', '24', 'f', 'asdertdes', '162394675360cb760200f23jpeg', 1),
+('260532961', 'Marcos Paulo', 'marcao@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '07/09/1988', 'SP', '08122-080', '32.909.765-9', '305.938.510-64', '(11) 968813442', 'Rua dos lagos, n° 37, jd Oliva', '05-00891', 'Online', 1, '2007', '50min', 'Olá, bem vindo a este espaço. Sou psicólogo clínico e tenho experiência em Terapia Humanista - Abordagem Centrada na Pessoa(ACP).\r\nConsidero que todas as pessoas possam ser compreendidas e acolhidas, independente da experiência que estejam vivenciando.\r\nA ACP é uma abordagem que considera único cada indivíduo e entende que é possível ajudar o outro através de um processo de autoconhecimento e de escuta acolhedora e empática.\r\nSeja bem vindo a este espaço de acolhimento.', 'Na minha formação em Psicologia pela Universidade Federal de Minas Gerais tive oportunidade de trabalhar com diversas áreas da Psicologia (social, desenvolvimento, clínica, etc). Em paralelo busquei experiências no mercado e construí uma carreira voltada para o Recursos Humanos, principalmente para o mercado de Startups.\r\nHoje busco dividir meu tempo em um balanço entre clínica e Recursos Humanos, pois percebo que tais experiências são muito complementares e podem proporcionar maior compreensão das experiências vividas', NULL, NULL, 'user.png', 'Português', '80,00', '12', 'm', NULL, 'qrcode.png', 1),
+('694628662', 'Thiago', 'thiago@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '12/08/1984', 'SP', '08122-080', '32.899..423-9', '305.938.510-64', '(11) 96881-3442', 'Rua Lagos azul, N° 43', '08-01234', 'Online', 1, '2011', '50min', 'ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo', 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', NULL, NULL, '162328159960c14fbf48805.jpeg', 'Inglês', '90,00', '6', 'm', NULL, 'qrcode.png', 0);
 
 -- --------------------------------------------------------
 
@@ -522,9 +532,13 @@ INSERT INTO `tipo_nicho` (`id_tipo_nicho`, `id_psic`, `nome`) VALUES
 (11, 123456, 'Orientação profissional'),
 (12, 123456, 'Psicologia organizacional e do trabalho'),
 (13, 123456, 'Psicologia organizacional e do trabalho'),
-(15, 1341553486, 'Psicologia de trânsito'),
 (16, 694628662, 'Orientação profissional'),
-(17, 694628662, 'Psicologia de trânsito');
+(17, 694628662, 'Psicologia de trânsito'),
+(19, 1341553486, 'Psicologia de trânsito'),
+(21, 1341553486, 'Psicologia social'),
+(22, 1341553486, 'Neuropsicologia'),
+(23, 1341553486, 'Comportamento do consumidor'),
+(24, 1341553486, 'Psicologia organizacional e do trabalho');
 
 --
 -- Índices de tabelas apagadas
@@ -610,7 +624,7 @@ ALTER TABLE `tipo_nicho`
 -- AUTO_INCREMENT de tabela `consulta`
 --
 ALTER TABLE `consulta`
-  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de tabela `dias`
 --
@@ -625,7 +639,7 @@ ALTER TABLE `especialidade`
 -- AUTO_INCREMENT de tabela `esp_psico`
 --
 ALTER TABLE `esp_psico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de tabela `horarios`
 --
@@ -645,12 +659,12 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT de tabela `notificacao`
 --
 ALTER TABLE `notificacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de tabela `tipo_nicho`
 --
 ALTER TABLE `tipo_nicho`
-  MODIFY `id_tipo_nicho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_tipo_nicho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

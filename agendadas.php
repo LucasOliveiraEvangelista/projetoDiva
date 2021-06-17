@@ -43,12 +43,12 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="lista_psicologos.php" class="nav__link ">
-                    <i class="fas fa-th-large"></i>
-                        <span class="nav__name">Feed</span>
+                    <a href="dashboard.php" class="nav__link ">
+                    <i class="fas fa-calendar-week"></i>
+                        <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="dash_user.php" class="nav__link">
+                    <a href="agenda.php" class="nav__link">
                     <i class="far fa-calendar-alt"></i>
                         <span class="nav__name">Consulta</span>
                     </a>
@@ -57,14 +57,18 @@
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
+                    <a href="notificacao_psic.php" class="nav__link">
+                    <i class="far fa-bell"></i>
                         <span class="nav__name">Sobre nós</span>
                     </a>
 
-                    <a href="perfil_user.php" class="nav__link">
+                    <a href="perfil_psic.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>

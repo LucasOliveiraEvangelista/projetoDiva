@@ -30,6 +30,9 @@ root{
     color: #ffffff;
     font-family: 'Oswald', sans-serif;
 }
+.nav .links a:hover{
+    padding-bottom: 4px;
+}
 .nav .links a button{
     background: transparent;
     border: 3px solid #ffffff;
@@ -71,6 +74,7 @@ root{
     font-family: 'Antonio', sans-serif;
     font-size: 60px;
     font-weight: 200;
+    margin-top: -30px;
 }
 .texto .paragrafo{
     font-family: 'Oswald', sans-serif;
@@ -106,7 +110,7 @@ root{
     border: none;
     box-shadow: 8px 5px 4px #33333333;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 .wave_cima{
     

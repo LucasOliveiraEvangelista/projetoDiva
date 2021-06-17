@@ -43,7 +43,7 @@
     height: 60px;
     font-family: var(--fonte-texto);
     color: var(--cor-titulo);
-    border: 3px solid var(--cor-titulo);
+    box-shadow: 5px 3px 8px #00000078;
     font-size: 22px;
     margin-right: 10px;
     margin-top: 6px;

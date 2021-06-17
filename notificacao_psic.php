@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/navbar.css">
+    <title>Minhas notificações</title>
 
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/list_not.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -44,14 +45,18 @@
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
+                    <a href="notificacao_psic.php" class="nav__link">
+                    <i class="far fa-bell"></i>
                         <span class="nav__name">Sobre nós</span>
                     </a>
 
                     <a href="perfil_psic.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -78,18 +83,57 @@ if($query){
         </script>";
     }
 }
-
+    ?>
+    <div class="coluna">
+    <p>Pagamentos</p>
+    <?php
 $query2 = mysqli_query($conn, "SELECT c.nome, c.unique_id, n.msg, n.id_para, n.id, n.id_enviou, n.status 
-FROM cad_usuario AS c JOIN notificacao AS n ON c.unique_id = n.id_enviou WHERE id_para = '$id'");
+FROM cad_usuario AS c JOIN notificacao AS n ON c.unique_id = n.id_enviou WHERE id_para = '$id' AND msg = 'Pagou Consulta'");
 while($notif = mysqli_fetch_array($query2)){
-    echo "<div class='card'>
+    echo "<div class='col1'>
+    <div class='item'>
     <p>$notif[nome]</p>
     <p>$notif[msg]</p>
     <p>$notif[status]</p>
     <a href='upnotificacao_psic.php?id_not=$notif[id]'><button>Visto</button></a>
+    </div>
+    </div> ";
+}
+
+?>
+    <p>Consultas</p>
+    <?php
+$query2 = mysqli_query($conn, "SELECT c.nome, c.unique_id, n.msg, n.id_para, n.id, n.id_enviou, n.status 
+FROM cad_usuario AS c JOIN notificacao AS n ON c.unique_id = n.id_enviou WHERE id_para = '$id' AND msg = 'Nova Consulta'");
+while($notif = mysqli_fetch_array($query2)){
+    echo "<div class='col1'>
+    <div class='item'>
+    <p>$notif[nome]</p>
+    <p>$notif[msg]</p>
+    <p>$notif[status]</p>
+    <a href='upnotificacao_psic.php?id_not=$notif[id]'><button>Visto</button></a>
+    </div>
+    </div> ";
+}
+
+?>
+<p>Mensagens</p>
+<?php
+
+$query3 = mysqli_query($conn, "SELECT c.nome, c.unique_id, n.msg, n.id_para, n.id, n.id_enviou, n.status 
+FROM cad_usuario AS c JOIN notificacao AS n ON c.unique_id = n.id_enviou WHERE id_para = '$id' AND msg = 'Nova Mensagem'");
+while($notif = mysqli_fetch_array($query3)){
+    echo "<div class='col2'>
+    <div class='item'>
+    <p>$notif[nome]</p>
+    <p>$notif[msg]</p>
+    <p>$notif[status]</p>
+    <a href='upnotificacao_psic.php?id_not=$notif[id]'><button>Visto</button></a>
+    </div>
     </div>";
 }
 
 ?>
+</div>
 </body>
 </html>

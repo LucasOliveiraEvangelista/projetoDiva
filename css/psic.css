@@ -67,7 +67,7 @@
 }
 .especialidades, .experiencias{
     width: 500px;
-    height: 400px;
+    height: 530px;
     background: var(--cor-principal);
     border-radius: 10px;
     margin-left: 80px;
@@ -119,4 +119,14 @@
 }
 .card_formacao .desc{
     padding: 20px;
+}
+.especialidades buttom{
+    color: #fff;
+    /* display: inline; */
+    margin-left: 60px;
+    background: #b21010;
+    border: none;
+    height: 30px;
+    border-radius: 7px;
+    box-shadow: 4px 3px 2px #000078;
 }

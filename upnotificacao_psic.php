@@ -4,7 +4,7 @@
 
     $id_msg = $_GET['id_not'];
 
-    $update = mysqli_query($conn, "UPDATE notifcacao SET status = 'Visto' WHERE id = '$id_msg'");
+    $update = mysqli_query($conn, "UPDATE notificacao SET status = 'Já Visto' WHERE id = '$id_msg'");
     if($update){
         echo "<script>
         alert('Marcado como Visto');

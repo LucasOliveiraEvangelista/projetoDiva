@@ -32,28 +32,32 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="lista_psicologos.php" class="nav__link ">
+                    <a href="dash_user.php" class="nav__link ">
                     <i class="fas fa-th-large"></i>
-                        <span class="nav__name">Feed</span>
+                        <span class="nav__name">Dashboard</span>
                     </a>
                     
-                    <a href="dash_user.php" class="nav__link">
-                    <i class="far fa-calendar-alt"></i>
-                        <span class="nav__name">Consulta</span>
+                    <a href="lista_psicologos.php" class="nav__link">
+                    <i class="fas fa-list-ul"></i>
+                        <span class="nav__name">Feed</span>
                     </a>
-                    <a href="chat/users.php" class="nav__link">
+                    <a href="chat_psic/users.php" class="nav__link">
                     <i class="far fa-comment-alt"></i>
                         <span class="nav__name">Chat</span>
                     </a>
 
-                    <a href="sobre.php" class="nav__link">
-                    <i class="fas fa-book"></i>
-                        <span class="nav__name">Sobre nós</span>
+                    <a href="notificacao_user.php" class="nav__link">
+                    <i class="far fa-bell"></i>
+                        <span class="nav__name">Notificações</span>
                     </a>
 
                     <a href="perfil_user.php" class="nav__link">
                     <i class="far fa-user"></i>
                         <span class="nav__name">Perfil</span>
+                    </a>
+                    <a href="encerra.php" class="nav__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav__name">Sair</span>
                     </a>
                 </div>
             </div>
@@ -61,6 +65,18 @@
         </nav>
     </div>
         <script src="js/navbar.js"></script>
+        <?php
+        
+            require_once 'conexao.php';
+            session_start();
+            $id = $_SESSION['unique_id'];
+            $id_consulta = $_POST['pagar'];
+            $id_psi = $_POST['id'];
+
+
+            $achar = mysqli_query($conn, "SELECT c.id_psic, c.id_user, c.id_consulta, p.unique_id, p.nome, p.chave, p.qrcode, p.valor  FROM consulta AS c INNER JOIN psicologos AS p WHERE unique_id = '$id_psi'");
+            $paga = mysqli_fetch_array($achar);
+        ?>
 
 <div class="container" id="container">
 <div class="form-container sign-up-container">
@@ -80,7 +96,7 @@
 </form>
 </div>
 <div class="form-container sign-in-container">
-	<form action="#">
+	
 		<h1>Pix</h1>
 		<div class="social-container">
 		<a href="#" class="social"><i class="fa fa-cc-visa"></i></a>
@@ -88,11 +104,15 @@
 		<a href="#" class="social"><i class="fa fa-cc-paypal"></i></a>
 	</div>
 	<span></span>
-	<input type="text" name="pix" placeholder="aer3249">
-	<img src="assets/qr.svg" alt="">
-
-	<button>Confirmar</button>
-	</form>
+	<?php
+    var_dump($id_consulta);
+        echo "<p>$paga[nome] / R$ $paga[valor]</p>";
+        echo "<p> Chave PIX: $paga[chave]</p>";
+        echo "<img src='process/qrs/$paga[qrcode]'>";
+            
+        echo "<a href='pagou.php?pagou=$id_consulta'><button>Confirmar</button></a>";
+    ?>
+	
 </div>
 <div class="overlay-container">
 	<div class="overlay">

@@ -17,8 +17,8 @@ function masc_cep(){
 function masc_telefone(){
 	var telefone = document.getElementById('telefone')
 		if(telefone.value.length == 1)
-			telefone.value = "(+55) " + telefone.value 
-		if(telefone.value.length == 12)
+			telefone.value = "(11) " + telefone.value 
+		if(telefone.value.length == 11)
 			telefone.value += "-";
 }
 
