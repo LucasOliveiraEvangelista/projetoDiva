@@ -54,17 +54,17 @@ body{
     margin-left: -15%;
 }
 #qua:checked ~ .first{
-    margin-left: -40%;
+    margin-left: -35%;
 }
 #qui:checked ~ .first{
-    margin-left: -60%;
+    margin-left: -53%;
 }
 #sex:checked ~ .first{
-    margin-left: -80%;
+    margin-left: -72%;
 }
 #sab:checked ~ .first{
-    margin-left: -100%;
+    margin-left: -90%;
 }
 #dom:checked ~ .first{
-    margin-left: -120%;
+    margin-left: -107%;
 }

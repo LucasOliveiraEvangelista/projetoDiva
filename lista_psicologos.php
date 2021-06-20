@@ -145,7 +145,7 @@
             <div class='coluna2'>
                 <div class='info'>
                     <p class = 'nome'>$psic[nome]</p>
-                    <p>Formado na: $psic[diploma]</p>
+                    <p>Formado na: $psic[faculdade]</p>
                     <p>CRP: $psic[crp]</p>
                     <p>Estado: $psic[estado]</p>
                     <p>Valor: R$ $psic[valor]/$psic[tempo_consulta]</p>

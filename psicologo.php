@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/psic.css">
-    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/slide.css">
     <link rel="stylesheet" href="css/age.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/not.css">
@@ -175,9 +175,9 @@
             <p class="nome">Experiências</p>
             <?php
             
-            $exp = mysqli_query($conn, "SELECT * FROM tipo_nicho WHERE id_psic = '$row[unique_id]' ORDER BY nicho ASC LIMIT 6");
+            $exp = mysqli_query($conn, "SELECT * FROM tipo_nicho WHERE id_psic = '$row[unique_id]' ORDER BY nome ASC LIMIT 6");
                 while ($experiencia = mysqli_fetch_array($exp)){
-                    echo "<p>$experiencia[nicho]</p>";
+                    echo "<p>$experiencia[nome]</p>";
                 }
             ?>
             
