@@ -65,7 +65,7 @@
         <?php
 			require_once '../conexao.php';
             $esp = $_POST['espe'];
-			$executar = "SELECT p.nome AS nombre, p.unique_id, p.resumo, p.foto, p.diploma, p.crp, p.estado, p.valor, p.tempo_consulta, e.nome, e.id_psic FROM psicologos AS p JOIN esp_psico AS e WHERE e.id_psic = p.unique_id AND e.nome LIKE '%$esp%'";
+			$executar = "SELECT p.nome AS nombre, p.unique_id, p.resumo, p.foto, p.diploma, p.crp, p.situacao, p.estado, p.valor, p.tempo_consulta, e.nome, e.id_psic FROM psicologos AS p JOIN esp_psico AS e WHERE e.id_psic = p.unique_id AND e.nome LIKE '%$esp%'";
             $resultados = mysqli_query($conn, $executar);
 
         ?>

@@ -120,13 +120,23 @@
 .card_formacao .desc{
     padding: 20px;
 }
-.especialidades buttom{
+
+.especialidades input, .experiencias input{
+    background: #fff;
+    border: none;
+    height: 35px;
+    box-shadow: 3px 3px 4px #00000068;
+    border-radius: 6px;
+}
+button{
     color: #fff;
-    /* display: inline; */
     margin-left: 60px;
     background: #b21010;
     border: none;
     height: 30px;
     border-radius: 7px;
-    box-shadow: 4px 3px 2px #000078;
+    box-shadow: 4px 3px 2px #00000078;
+}
+select{
+    width: 288px;
 }
